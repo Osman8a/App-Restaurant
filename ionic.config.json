@@ -1,0 +1,8 @@
+{
+  "name": "Comensal2.0",
+  "app_id": "e2c4625d",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}
