@@ -52,5 +52,26 @@ export class LoginPage {
         alert.present(); // si se produce un error lo muestra
       })
   }
+/**
+ * 
+ * @function login llama a la funcion loginUser 
+ * que se encuetra en el authProvider, pasandole
+ * el email y la contraseña 
+ * @memberof LoginPage
+ */
+login(){
+    this.auth.loginUser(this.user.email, this.user.password)
+      .then((user)=>{
+        // usuario logeado
+      })
+      .catch((err)=>{
+        let alert = this.alertCtrl.create({
+          title: 'Error',
+          subTitle: err.message,
+          buttons: ['Aceptar']
+        });
+        alert.present();
+      })
+  }
 
 }

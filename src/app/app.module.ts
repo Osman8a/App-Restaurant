@@ -3,11 +3,13 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
+
+import { AuthProvider } from '../providers/auth/auth';
+
+
 import { AngularFireModule } from 'angularfire2';  // Firebase
 import { AngularFireDatabaseModule } from 'angularfire2/database'; // Firebase database
 import { AngularFireAuthModule } from 'angularfire2/auth'; // Firebase login
-import { HttpClientModule } from '@angular/common/http';
-import { HttpModule } from '@angular/http';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -41,7 +43,8 @@ export const firebaseConfig = {
   providers: [
     StatusBar,
     SplashScreen,
-    { provide: ErrorHandler, useClass: IonicErrorHandler }
+    { provide: ErrorHandler, useClass: IonicErrorHandler },
+    AuthProvider
   ]
 })
 export class AppModule { }
