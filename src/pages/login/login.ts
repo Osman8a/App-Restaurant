@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular'; //AlertController para mostrar los mensajes de error
 import { AuthProvider } from '../../providers/auth/auth'; // nustro proveedor
+import { GooglePlus } from '@ionic-native/google-plus';
+
 /**
  * Generated class for the LoginPage page.
  *
@@ -21,7 +23,8 @@ export class LoginPage {
     public navCtrl: NavController,
     public navParams: NavParams,
     public auth: AuthProvider,
-    public alertCtrl: AlertController
+    public alertCtrl: AlertController,
+    public googlePlus: GooglePlus
   ) {
 
   }
@@ -30,6 +33,15 @@ export class LoginPage {
     console.log('ionViewDidLoad LoginPage');
   }
 
+  googleAuth(){
+    this.googlePlus.login({})
+      .then((res)=>{
+        alert('Login Saatisfactorio')
+      })
+      .catch((err)=>{
+        alert(`Error ${err}`)
+      })
+  }
   /**
    * 
    * @function signin()  llama al método registerUser que se ha 

@@ -32,7 +32,11 @@
         Login
       </button>
       <button ion-button (click)="signin()" type="submit" color="secondary" block>
-        Dar de alta
+        Crear Cuenta
+      </button>
+      <button ion-button block color="danger" (click)="googleAuth()" *ngIf="!userProfile">
+        <ion-icon name="logo-googleplus"></ion-icon>
+        Login con Google
       </button>
     </div>
   </form>
