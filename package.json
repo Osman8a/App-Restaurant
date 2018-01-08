@@ -26,6 +26,7 @@
     "@ionic/pro": "1.0.16",
     "@ionic/storage": "2.1.3",
     "angularfire2": "^5.0.0-rc.4",
+    "cordova-plugin-googleplus": "^5.2.0",
     "firebase": "4.8.0",
     "ionic-angular": "3.9.2",
     "ionicons": "3.0.0",
@@ -39,5 +40,12 @@
     "@ionic/app-scripts": "3.1.6",
     "typescript": "2.4.2"
   },
-  "description": "An Ionic project"
+  "description": "An Ionic project",
+  "cordova": {
+    "plugins": {
+      "cordova-plugin-googleplus": {
+        "REVERSED_CLIENT_ID": "com.googleusercontent.apps.767495751556-6ufka76rcbduv024todm48ostn8lo1od"
+      }
+    }
+  }
 }
