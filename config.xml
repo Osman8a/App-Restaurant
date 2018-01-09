@@ -82,6 +82,7 @@
     <plugin name="cordova-plugin-splashscreen" spec="~4.0.1" />
     <plugin name="cordova-plugin-ionic-webview" spec="^1.1.11" />
     <plugin name="cordova-plugin-googleplus" spec="^5.2.0">
-        <variable name="REVERSED_CLIENT_ID" value="com.googleusercontent.apps.767495751556-6ufka76rcbduv024todm48ostn8lo1od" />
+        <variable name="REVERSED_CLIENT_ID" value="com.googleusercontent.apps.767495751556-o2lpk85g9si0o4aa78c5gptbnskjd6r3" />
     </plugin>
+    <allow-navigation href="http://192.168.1.6:8100" />
 </widget>

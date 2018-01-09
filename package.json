@@ -10,7 +10,7 @@
     "lint": "ionic-app-scripts lint",
     "ionic:build": "ionic-app-scripts build",
     "ionic:serve": "ionic-app-scripts serve",
-    "android":"ionic cordova run android"
+    "android": "ionic cordova run android"
   },
   "dependencies": {
     "@angular/common": "5.0.3",
@@ -46,7 +46,7 @@
   "cordova": {
     "plugins": {
       "cordova-plugin-googleplus": {
-        "REVERSED_CLIENT_ID": "com.googleusercontent.apps.767495751556-6ufka76rcbduv024todm48ostn8lo1od"
+        "REVERSED_CLIENT_ID": "com.googleusercontent.apps.767495751556-o2lpk85g9si0o4aa78c5gptbnskjd6r3"
       }
     }
   }

@@ -3,6 +3,10 @@ import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angu
 import { AuthProvider } from '../../providers/auth/auth'; // nustro proveedor
 import { GooglePlus } from '@ionic-native/google-plus';
 
+import { AngularFireAuth } from 'angularfire2/auth';
+import firebase from 'firebase';
+
+
 /**
  * Generated class for the LoginPage page.
  *
@@ -18,13 +22,14 @@ import { GooglePlus } from '@ionic-native/google-plus';
 export class LoginPage {
 
   user = { email: "", password: "" };
-
+  fireauth = firebase.auth();
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
     public auth: AuthProvider,
     public alertCtrl: AlertController,
-    public googlePlus: GooglePlus
+    public googlePlus: GooglePlus,
+    private af: AngularFireAuth
   ) {
 
   }
@@ -34,12 +39,21 @@ export class LoginPage {
   }
 
   googleAuth(){
-    this.googlePlus.login({})
-      .then((res)=>{
-        alert('Login Saatisfactorio')
+    this.googlePlus.login({//nuevo
+      'webClientId': '767495751556-7ll1eumre2o4robhs9rm8p2v97cq30rb.apps.googleusercontent.com'//
+    })
+      .then((res)=>{//
+        const firecreds = firebase.auth.GoogleAuthProvider.credential(res.idToken);//
+        this.fireauth.signInWithCredential(firecreds)//
+          .then((res)=>{//
+            alert('Login Saatisfactorio')//
+          })//
+          .catch((err)=>{//
+            alert(`La conexión con FireBase falló${err}`)//
+          })//
       })
       .catch((err)=>{
-        alert(`Error ${err}`)
+        alert(`cambio 1 ${err}`)
       })
   }
   /**
