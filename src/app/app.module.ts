@@ -11,6 +11,7 @@ import { AuthProvider } from '../providers/auth/auth';
 import { AngularFireModule } from 'angularfire2';  // Firebase
 import { AngularFireDatabaseModule } from 'angularfire2/database'; // Firebase database
 import { AngularFireAuthModule } from 'angularfire2/auth'; // Firebase login
+import { Facebook } from '@ionic-native/facebook';//facebook 
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -46,7 +47,8 @@ export const firebaseConfig = {
     SplashScreen,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     AuthProvider,
-    GooglePlus
+    GooglePlus,
+    Facebook
   ]
 })
 export class AppModule { }

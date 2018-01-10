@@ -1,5 +1,7 @@
-import { Injectable } from '@angular/core';
+import { Facebook } from '@ionic-native/facebook';
 import { AngularFireAuth } from 'angularfire2/auth';
+import { Injectable } from '@angular/core';
+import firebase from 'firebase/app';
 
 
 /*
@@ -16,8 +18,29 @@ import { AngularFireAuth } from 'angularfire2/auth';
 @Injectable()
 export class AuthProvider {
 
-  constructor(private afAuth: AngularFireAuth) {
+  constructor(
+    private afAuth: AngularFireAuth,
+    private facebook: Facebook) {
     console.log('Hello AuthProvider Provider');
+  }
+
+
+  facebookLogin(){
+    this.facebook.login(['email'])
+    .then((res) => {
+        const facebookCredential = firebase.auth.FacebookAuthProvider.credential(res.authResponse.accessToken);
+            this.afAuth.auth.signInWithCredential(facebookCredential)
+            .then((res) => {
+              alert(`Login Saatisfactorio ${res}`)//
+            })
+            .catch ((err) => {
+              alert(`error durante la authenticacion ${err}`);
+            })
+      })
+      .catch((err) => {
+        alert(`error inespeerado ${err}`);
+      })
+
   }
 
   /**

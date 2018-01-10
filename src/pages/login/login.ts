@@ -6,7 +6,6 @@ import { GooglePlus } from '@ionic-native/google-plus';
 import { AngularFireAuth } from 'angularfire2/auth';
 import firebase from 'firebase';
 
-
 /**
  * Generated class for the LoginPage page.
  *
@@ -29,7 +28,7 @@ export class LoginPage {
     public auth: AuthProvider,
     public alertCtrl: AlertController,
     public googlePlus: GooglePlus,
-    private af: AngularFireAuth
+    private af: AngularFireAuth,
   ) {
 
   }
@@ -38,21 +37,25 @@ export class LoginPage {
     console.log('ionViewDidLoad LoginPage');
   }
 
-  googleAuth(){
+  facebookLogin() {
+    this.auth.facebookLogin()
+  }
+
+  googleAuth() {
     this.googlePlus.login({//nuevo
       'webClientId': '767495751556-7ll1eumre2o4robhs9rm8p2v97cq30rb.apps.googleusercontent.com'//
     })
-      .then((res)=>{//
+      .then((res) => {//
         const firecreds = firebase.auth.GoogleAuthProvider.credential(res.idToken);//
         this.fireauth.signInWithCredential(firecreds)//
-          .then((res)=>{//
+          .then((res) => {//
             alert('Login Saatisfactorio')//
           })//
-          .catch((err)=>{//
+          .catch((err) => {//
             alert(`La conexión con FireBase falló${err}`)//
           })//
       })
-      .catch((err)=>{
+      .catch((err) => {
         alert(`cambio 1 ${err}`)
       })
   }
@@ -78,19 +81,19 @@ export class LoginPage {
         alert.present(); // si se produce un error lo muestra
       })
   }
-/**
- * 
- * @function login llama a la funcion loginUser 
- * que se encuetra en el authProvider, pasandole
- * el email y la contraseña 
- * @memberof LoginPage
- */
-login(){
+  /**
+   * 
+   * @function login llama a la funcion loginUser 
+   * que se encuetra en el authProvider, pasandole
+   * el email y la contraseña 
+   * @memberof LoginPage
+   */
+  login() {
     this.auth.loginUser(this.user.email, this.user.password)
-      .then((user)=>{
+      .then((user) => {
         // usuario logeado
       })
-      .catch((err)=>{
+      .catch((err) => {
         let alert = this.alertCtrl.create({
           title: 'Error',
           subTitle: err.message,

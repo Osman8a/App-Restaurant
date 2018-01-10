@@ -85,4 +85,9 @@
         <variable name="REVERSED_CLIENT_ID" value="com.googleusercontent.apps.767495751556-o2lpk85g9si0o4aa78c5gptbnskjd6r3" />
     </plugin>
     <allow-navigation href="http://192.168.1.6:8100" />
+    <plugin name="cordova-plugin-facebook4" spec="^1.9.1">
+        <variable name="APP_ID" value="557809607898240" />
+        <variable name="APP_NAME" value="Menu para hoy" />
+    </plugin>
+    <engine name="android" spec="~7.0.0" />
 </widget>
