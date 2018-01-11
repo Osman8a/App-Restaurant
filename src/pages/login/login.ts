@@ -19,7 +19,8 @@ import firebase from 'firebase';
   templateUrl: 'login.html',
 })
 export class LoginPage {
-
+  splash = true;
+  //tabBarElement: any;
   user = { email: "", password: "" };
   fireauth = firebase.auth();
   constructor(
@@ -30,11 +31,16 @@ export class LoginPage {
     public googlePlus: GooglePlus,
     private af: AngularFireAuth,
   ) {
-
+    //this.tabBarElement = document.getElementById('.tabbar')
   }
 
+  //setTimeout(()=>{this.nav.setPages([MyPage])}, 300)
   ionViewDidLoad() {
-    console.log('ionViewDidLoad LoginPage');
+    // this.tabBarElement.style.display = 'none';
+    setTimeout(() => {
+      this.splash = false;
+      //  this.tabBarElement.style.display = 'flex';
+    }, 4000);
   }
 
   facebookLogin() {
