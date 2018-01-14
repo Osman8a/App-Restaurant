@@ -244,6 +244,12 @@ android-versions@^1.2.1:
   dependencies:
     semver "^5.4.1"
 
+angular2-signaturepad@^2.6.1:
+  version "2.6.1"
+  resolved "https://registry.yarnpkg.com/angular2-signaturepad/-/angular2-signaturepad-2.6.1.tgz#967b9978abab973accf8c2dd37c2a92eb79d4757"
+  dependencies:
+    signature_pad "2.2.0"
+
 angularfire2@^5.0.0-rc.5-next:
   version "5.0.0-rc.5-next"
   resolved "https://registry.yarnpkg.com/angularfire2/-/angularfire2-5.0.0-rc.5-next.tgz#e5b4f0fe994e106276d86133734dc7949d127cb1"
@@ -3225,6 +3231,10 @@ signal-exit@^3.0.0:
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/signal-exit/-/signal-exit-3.0.2.tgz#b5fdc08f1287ea1178628e415e25132b73646c6d"
 
+signature_pad@2.2.0:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/signature_pad/-/signature_pad-2.2.0.tgz#03d3d398b77868163cce8f2a02744c741ab0976e"
+
 sntp@1.x.x:
   version "1.0.9"
   resolved "https://registry.yarnpkg.com/sntp/-/sntp-1.0.9.tgz#6541184cc90aeea6c6e7b35e2659082443c66198"
@@ -3417,6 +3427,10 @@ sw-toolbox@3.6.0:
   dependencies:
     path-to-regexp "^1.0.1"
     serviceworker-cache-polyfill "^4.0.0"
+
+sweetalert2@^7.3.5:
+  version "7.3.5"
+  resolved "https://registry.yarnpkg.com/sweetalert2/-/sweetalert2-7.3.5.tgz#fc900404660aa107dccd0ca4c9c8e918187ec5aa"
 
 symbol-observable@^1.0.1:
   version "1.1.0"

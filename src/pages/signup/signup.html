@@ -1,0 +1,47 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Signup</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+  <form>
+    <ion-item>
+      <ion-label floating> Nombre </ion-label>
+      <ion-input [(ngModel)]="user.nombre" name="nombre" type="text" autocapitalize="off" novalidate>
+      </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating> Email </ion-label>
+      <ion-input [(ngModel)]="user.email" name="email" type="text" autocapitalize="off" novalidate>
+      </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating> Email </ion-label>
+      <ion-input [(ngModel)]="user.secondemail" name="email" type="text" autocapitalize="off" novalidate>
+      </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating> Contraseña </ion-label>
+      <ion-input [(ngModel)]="user.password" name="password" type="password" required>
+      </ion-input>
+    </ion-item>
+
+    <div padding>
+      <button ion-button (click)="signup()" type="submit" color="energy" block>
+        Signup
+      </button>
+      <button ion-button (click)="googleAuth()" block color="danger" *ngIf="!userProfile">
+        <ion-icon name="logo-googleplus"></ion-icon>
+        SignUp con Google
+      </button>
+      <button ion-button (click)="facebookLogin()" block color="facebook">
+        <ion-icon name="logo-facebook"></ion-icon>
+        SignUp with Facebook
+      </button>
+    </div>
+  </form>
+</ion-content>

@@ -15,6 +15,10 @@ import { Facebook } from '@ionic-native/facebook';//facebook
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+import { WelcomePage } from '../pages/welcome/welcome';
+import { SignupPage } from '../pages/signup/signup';
+import { SignaturePadModule } from 'angular2-signaturepad';
+
 
 //Configuracion para conectarse a FireBase
 export const firebaseConfig = {
@@ -28,7 +32,9 @@ export const firebaseConfig = {
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    HomePage,
+    WelcomePage,
+    SignupPage
   ],
   imports: [
     BrowserModule,
@@ -40,7 +46,9 @@ export const firebaseConfig = {
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    HomePage,
+    WelcomePage,
+    SignupPage
   ],
   providers: [
     StatusBar,
