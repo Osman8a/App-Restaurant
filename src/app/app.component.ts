@@ -4,6 +4,7 @@ import { StatusBar } from "@ionic-native/status-bar";
 import { SplashScreen } from "@ionic-native/splash-screen";
 import { AuthProvider } from "../providers/auth/auth";
 
+//import { DbProvider } from "../providers/db/db";
 import { HomePage } from "../pages/home/home";
 import { WelcomePage } from "../pages/welcome/welcome";
 
@@ -18,7 +19,8 @@ export class MyApp {
     statusBar: StatusBar,
     splashScreen: SplashScreen,
     private auth: AuthProvider
-  ) {
+  ) //public db: DbProvider
+  {
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
@@ -35,6 +37,8 @@ export class MyApp {
 
       statusBar.styleDefault();
       splashScreen.hide();
+
+      // this.db.openDb().then(() => this.db.createTableSitios());
     });
   }
 }

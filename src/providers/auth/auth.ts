@@ -49,12 +49,13 @@ export class AuthProvider {
    * @memberof AuthProvider
    */
   registerUser(email: string, password: string) {
-    let user = this.afAuth.auth.currentUser;
-    console.log(user);
+    // let user = this.afAuth.auth.currentUser;
+    // console.log(user);
     return this.afAuth.auth
       .createUserWithEmailAndPassword(email, password)
       .then(res => {
         let user: any = this.afAuth.auth.currentUser;
+        console.log(user);
         user
           .sendEmailVerification()
           .then(res => {
