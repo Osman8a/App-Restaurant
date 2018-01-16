@@ -1,24 +1,25 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { ErrorHandler, NgModule } from '@angular/core';
-import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
-import { SplashScreen } from '@ionic-native/splash-screen';
-import { StatusBar } from '@ionic-native/status-bar';
-import { GooglePlus } from '@ionic-native/google-plus';
+import { BrowserModule } from "@angular/platform-browser";
+import { ErrorHandler, NgModule } from "@angular/core";
+import { IonicApp, IonicErrorHandler, IonicModule } from "ionic-angular";
+import { SplashScreen } from "@ionic-native/splash-screen";
+import { StatusBar } from "@ionic-native/status-bar";
+import { GooglePlus } from "@ionic-native/google-plus";
 
-import { AuthProvider } from '../providers/auth/auth';
+import { AuthProvider } from "../providers/auth/auth";
 
+import { AngularFireModule } from "angularfire2"; // Firebase
+import { AngularFireDatabaseModule } from "angularfire2/database"; // Firebase database
+import { AngularFireAuthModule } from "angularfire2/auth"; // Firebase login
+import { Facebook } from "@ionic-native/facebook"; //facebook
 
-import { AngularFireModule } from 'angularfire2';  // Firebase
-import { AngularFireDatabaseModule } from 'angularfire2/database'; // Firebase database
-import { AngularFireAuthModule } from 'angularfire2/auth'; // Firebase login
-import { Facebook } from '@ionic-native/facebook';//facebook 
-
-import { MyApp } from './app.component';
-import { HomePage } from '../pages/home/home';
-import { WelcomePage } from '../pages/welcome/welcome';
-import { SignupPage } from '../pages/signup/signup';
-import { SignaturePadModule } from 'angular2-signaturepad';
-
+import { MyApp } from "./app.component";
+import { HomePage } from "../pages/home/home";
+import { WelcomePage } from "../pages/welcome/welcome";
+import { SignupPage } from "../pages/signup/signup";
+import { SignaturePadModule } from "angular2-signaturepad";
+import { DbProvider } from "../providers/db/db";
+import { FirebaseDbProvider } from '../providers/firebase-db/firebase-db';
+//import { SQLite } from "@ionic-native/sqlite";
 
 //Configuracion para conectarse a FireBase
 export const firebaseConfig = {
@@ -30,12 +31,7 @@ export const firebaseConfig = {
 };
 
 @NgModule({
-  declarations: [
-    MyApp,
-    HomePage,
-    WelcomePage,
-    SignupPage
-  ],
+  declarations: [MyApp, HomePage, WelcomePage, SignupPage],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
@@ -44,19 +40,17 @@ export const firebaseConfig = {
     AngularFireAuthModule // inyectamos el modulo de FireBase login
   ],
   bootstrap: [IonicApp],
-  entryComponents: [
-    MyApp,
-    HomePage,
-    WelcomePage,
-    SignupPage
-  ],
+  entryComponents: [MyApp, HomePage, WelcomePage, SignupPage],
   providers: [
     StatusBar,
     SplashScreen,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     AuthProvider,
     GooglePlus,
-    Facebook
+    Facebook,
+    DbProvider,
+    FirebaseDbProvider
+    // SQLite
   ]
 })
-export class AppModule { }
+export class AppModule {}
