@@ -22,23 +22,18 @@ $app-direction: ltr;
 // colors so you can add, rename and remove colors as needed.
 // The "primary" color is the only required color in the map.
 $colors: (
-  primary: #488aff,
-  secondary: #677077,
   danger: #f53d3d,
-  light: #f4f4f4,
+  four: #FB6C32,
+  secondary: #E49322,
+  energy: #FDCF26,
+  five: #FD26FD,
+  light: #ffffff,
   dark: rgb(0, 0, 0),
-  energy: #eca31b,
   lightprimary: #b5b5b7,
-  facebook: #3b5998
+  facebook: #3b5998,
+  primary: #488aff,
 );
-// $colors: (
-//   primary:           #2A2C43,
-//   secondary:        #677077,
-//   lightprimary:    #B5B5B7,
-//   light:                 #f4f4f4,
-//   dark:                 #222,
-//   energy:             #f2b632
-// );
+
 $toolbar-background: color($colors, primary);
 // App iOS Variables
 // --------------------------------------------------

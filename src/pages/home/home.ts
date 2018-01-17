@@ -2,6 +2,7 @@ import { Component } from "@angular/core";
 import { NavController } from "ionic-angular";
 import { AuthProvider } from "../../providers/auth/auth"; // importo
 import { FirebaseDbProvider } from "../../providers/firebase-db/firebase-db";
+
 @Component({
   selector: "page-home",
   templateUrl: "home.html"
@@ -13,7 +14,7 @@ export class HomePage {
     public navCtrl: NavController,
     public auth: AuthProvider, // inyecto auth
     public dbFirebase: FirebaseDbProvider
-  ) {}
+  ) { }
 
   ionViewDidLoad() {
     console.log("se ha cargado Home");
@@ -35,4 +36,9 @@ export class HomePage {
   cerrarSesion() {
     this.auth.logout();
   }
+
+  verInfoRestaurante() {
+    this.navCtrl.push("RestaurantePage")
+  }
+
 }

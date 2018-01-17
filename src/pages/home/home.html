@@ -1,20 +1,68 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
-  </ion-navbar>
+  <ion-toolbar>
+    <ion-buttons end>
+      <button ion-button icon-only color="danger" (click)="cerrarSesion()">
+        <ion-icon name="log-out"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
 </ion-header>
-
-<ion-content padding>
-  <button ion-button block (click)="cerrarSesion()">Cerrar Sesión</button>
+<ion-content>
   <ion-list>
     <ion-item *ngFor="let sitios of sitios">
-      <ion-thumbnail item-left>
+      <ion-card>
+        <ion-item (click)="verInfoRestaurante()" type="submit">
+          <ion-avatar item-start>
+            <img [src]="sitios.image">
+          </ion-avatar>
+          <h2>Marty McFly</h2>
+          <p>November 5, 1955</p>
+        </ion-item>
         <img [src]="sitios.image">
-      </ion-thumbnail>
-      <h2>{{ sitios.nombre }}</h2>
-      <p>{{ sitios.descripcion }}</p>
+        <ion-card-content>
+          <!-- Aquí iría la descripción -->
+        </ion-card-content>
+
+        <!-- donde se encuentra favorito, distancia y compartir-->
+        <ion-grid>
+          <ion-row no-padding>
+            <ion-col>
+              <button ion-button clear small color="energy" icon-start class="estrella">
+                <ion-icon name='star'>1</ion-icon>
+              </button>
+            </ion-col>
+            <ion-col text-center>
+              <ion-icon name="navigate" color="primary"> 4.675</ion-icon>
+            </ion-col>
+            <ion-col text-center>
+              <ion-icon name="share" color="facebook"></ion-icon>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+        <!-- donde se encuentra el horario desde y haste -->
+        <ion-grid>
+          <ion-row>
+            <ion-col text-center>
+              <ion-icon name="clock" color="four"></ion-icon>Desde: 15:04
+            </ion-col>
+            <ion-col text-center>
+              <ion-icon name="clock" color="danger"></ion-icon>Hasta: 22:59
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+
+        <!-- donde se encuentra el precio minimo y maximo -->
+        <ion-grid>
+          <ion-row>
+            <ion-col text-center>
+              <ion-icon name="book" color="four"></ion-icon>Max: 2000 $
+            </ion-col>
+            <ion-col text-center>
+              <ion-icon name="book" color="danger"></ion-icon>Min: 5500 $
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card>
     </ion-item>
   </ion-list>
 </ion-content>

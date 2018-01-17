@@ -19,6 +19,7 @@ import { SignupPage } from "../pages/signup/signup";
 import { SignaturePadModule } from "angular2-signaturepad";
 import { DbProvider } from "../providers/db/db";
 import { FirebaseDbProvider } from '../providers/firebase-db/firebase-db';
+
 //import { SQLite } from "@ionic-native/sqlite";
 
 //Configuracion para conectarse a FireBase
@@ -53,4 +54,4 @@ export const firebaseConfig = {
     // SQLite
   ]
 })
-export class AppModule {}
+export class AppModule { }
