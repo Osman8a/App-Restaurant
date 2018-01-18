@@ -126,10 +126,6 @@
   version "4.4.0"
   resolved "https://registry.yarnpkg.com/@ionic-native/splash-screen/-/splash-screen-4.4.0.tgz#81ed723d7fd3f0d643072b5461fa0c32dcc330b1"
 
-"@ionic-native/sqlite@^4.5.2":
-  version "4.5.2"
-  resolved "https://registry.yarnpkg.com/@ionic-native/sqlite/-/sqlite-4.5.2.tgz#8069e1b5bbbf31d9786be96baab5708fb9f23342"
-
 "@ionic-native/status-bar@4.4.0":
   version "4.4.0"
   resolved "https://registry.yarnpkg.com/@ionic-native/status-bar/-/status-bar-4.4.0.tgz#35bcf2012ece652bd765a972008bec5a7f258a95"
@@ -1818,6 +1814,10 @@ invert-kv@^1.0.0:
 ionic-angular@3.9.2:
   version "3.9.2"
   resolved "https://registry.yarnpkg.com/ionic-angular/-/ionic-angular-3.9.2.tgz#75053e4a422aaae7d7cd668cc92cfd5cb29d38cc"
+
+ionic-img-viewer@^2.9.0:
+  version "2.9.0"
+  resolved "https://registry.yarnpkg.com/ionic-img-viewer/-/ionic-img-viewer-2.9.0.tgz#184b578131103f9de2817f106c3eeb1dd56378b7"
 
 ionic-plugin-keyboard@^2.2.1:
   version "2.2.1"

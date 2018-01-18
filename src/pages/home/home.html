@@ -12,13 +12,17 @@
     <ion-item *ngFor="let sitios of sitios">
       <ion-card>
         <ion-item (click)="verInfoRestaurante()" type="submit">
+          <!-- Logo del restaurante -->
           <ion-avatar item-start>
             <img [src]="sitios.image">
           </ion-avatar>
+          <!-- Nombre del restaurante -->
           <h2>Marty McFly</h2>
           <p>November 5, 1955</p>
+          <!-- Menú del restaurante -->
         </ion-item>
-        <img [src]="sitios.image">
+        <!-- <img [src]="sitios.image"> -->
+        <img [src]="sitios.image" #myImage (click)="presentImage(myImage)" />
         <ion-card-content>
           <!-- Aquí iría la descripción -->
         </ion-card-content>

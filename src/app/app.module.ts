@@ -11,13 +11,13 @@ import { AngularFireModule } from "angularfire2"; // Firebase
 import { AngularFireDatabaseModule } from "angularfire2/database"; // Firebase database
 import { AngularFireAuthModule } from "angularfire2/auth"; // Firebase login
 import { Facebook } from "@ionic-native/facebook"; //facebook
+import { IonicImageViewerModule } from 'ionic-img-viewer';
 
 import { MyApp } from "./app.component";
 import { HomePage } from "../pages/home/home";
 import { WelcomePage } from "../pages/welcome/welcome";
 import { SignupPage } from "../pages/signup/signup";
 import { SignaturePadModule } from "angular2-signaturepad";
-import { DbProvider } from "../providers/db/db";
 import { FirebaseDbProvider } from '../providers/firebase-db/firebase-db';
 import { ModalServiciosPage } from "../pages/modal-servicios/modal-servicios";
 
@@ -39,7 +39,8 @@ export const firebaseConfig = {
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(firebaseConfig), // inyectamos el modulo de FireBase
     AngularFireDatabaseModule, // inyectamos el modulo de FireBase database
-    AngularFireAuthModule // inyectamos el modulo de FireBase login
+    AngularFireAuthModule, // inyectamos el modulo de FireBase login
+    IonicImageViewerModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [MyApp, HomePage, WelcomePage, SignupPage, ModalServiciosPage],
@@ -50,7 +51,6 @@ export const firebaseConfig = {
     AuthProvider,
     GooglePlus,
     Facebook,
-    DbProvider,
     FirebaseDbProvider
     // SQLite
   ]
