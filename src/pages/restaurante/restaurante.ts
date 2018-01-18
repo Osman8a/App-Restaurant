@@ -1,12 +1,6 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
-/**
- * Generated class for the RestaurantePage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { IonicPage, NavController, NavParams, ModalController, ViewController } from 'ionic-angular';
+import { ModalServiciosPage } from '../modal-servicios/modal-servicios';
 
 @IonicPage()
 @Component({
@@ -15,11 +9,25 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class RestaurantePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public modalCtrl: ModalController,
+    public viewCtrl: ViewController
+  ) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad RestaurantePage');
+  }
+
+  openModal() {
+    let modal = this.modalCtrl.create(ModalServiciosPage);
+    modal.present();
+  }
+
+  dismiss() {
+    this.viewCtrl.dismiss();
   }
 
 }

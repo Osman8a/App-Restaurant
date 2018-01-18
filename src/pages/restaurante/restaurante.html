@@ -1,5 +1,4 @@
 <ion-header>
-
   <ion-navbar>
     <ion-title>restaurante</ion-title>
   </ion-navbar>
@@ -7,6 +6,77 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content class="card-background-page">
+  <ion-card>
+    <!-- Imagen del restaurat y Lugar -->
+    <img class="card-img" src="assets/images/fondo.jpg" />
+    <div class="card-title">São Paulo</div>
+    <div class="card-subtitle">41 Listings</div>
+    <!-- Favoritos(estrella), comentarios(burbuja) y Me gusta(corazon),  -->
+    <ion-grid>
+      <ion-row class="card-icos">
+        <ion-col>
+          <ion-icon color="energy" name="star"></ion-icon>
+          <ion-badge item-end>1</ion-badge>
+        </ion-col>
+        <ion-col>
+          <ion-icon color="primary" ios="ios-chatboxes" md="md-chatboxes"></ion-icon>1
+        </ion-col>
+        <ion-col>
+          <ion-icon color="danger" ios="ios-heart" md="md-heart"></ion-icon>2
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <ion-card-content>
+      <!-- Signo de interrogación -->
+      <ion-grid>
+        <ion-col class="icon-ayuda" text-right>
+
+          <ion-icon color="danger" ios="ios-pricetag" md="md-pricetag" (click)="openModal()"></ion-icon>
+        </ion-col>
+      </ion-grid>
+      <!-- Servicios del Restaurate -->
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-icon name="wifi"></ion-icon>
+          </ion-col>
+          <ion-col>
+            <ion-icon name="card"></ion-icon>
+          </ion-col>
+          <ion-col>
+            <ion-icon name="car"></ion-icon>
+          </ion-col>
+          <ion-col>
+            <ion-icon name="basket"></ion-icon>
+          </ion-col>
+          <ion-col>
+            <ion-icon name="snow"></ion-icon>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <!-- Descripción del restaurante -->
+      <p>Mollit commodo qui eiusmod consequat.</p>
+
+    </ion-card-content>
+  </ion-card>
+  <!-- Chat -->
+  <ion-list>
+    <ion-item>
+      <ion-avatar item-start>
+        <img src="assets/imgs/osman1.png">
+      </ion-avatar>
+      <h2>Osman</h2>
+      <p>Mala atención, mala comida, malos sientos...</p>
+    </ion-item>
+
+    <ion-item>
+      <ion-avatar item-start>
+        <img src="assets/imgs/osman1.png">
+      </ion-avatar>
+      <h2>Osman</h2>
+      <p>Excelente Restaurante</p>
+    </ion-item>
+  </ion-list>
 
 </ion-content>

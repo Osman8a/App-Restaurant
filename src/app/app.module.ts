@@ -19,6 +19,7 @@ import { SignupPage } from "../pages/signup/signup";
 import { SignaturePadModule } from "angular2-signaturepad";
 import { DbProvider } from "../providers/db/db";
 import { FirebaseDbProvider } from '../providers/firebase-db/firebase-db';
+import { ModalServiciosPage } from "../pages/modal-servicios/modal-servicios";
 
 //import { SQLite } from "@ionic-native/sqlite";
 
@@ -32,7 +33,7 @@ export const firebaseConfig = {
 };
 
 @NgModule({
-  declarations: [MyApp, HomePage, WelcomePage, SignupPage],
+  declarations: [MyApp, HomePage, WelcomePage, SignupPage, ModalServiciosPage],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
@@ -41,7 +42,7 @@ export const firebaseConfig = {
     AngularFireAuthModule // inyectamos el modulo de FireBase login
   ],
   bootstrap: [IonicApp],
-  entryComponents: [MyApp, HomePage, WelcomePage, SignupPage],
+  entryComponents: [MyApp, HomePage, WelcomePage, SignupPage, ModalServiciosPage],
   providers: [
     StatusBar,
     SplashScreen,
