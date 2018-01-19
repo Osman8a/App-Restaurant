@@ -1,5 +1,5 @@
 import { Component } from "@angular/core";
-import { NavController } from "ionic-angular";
+import { NavController, ModalController } from "ionic-angular";
 import { AuthProvider } from "../../providers/auth/auth"; // importo
 import { FirebaseDbProvider } from "../../providers/firebase-db/firebase-db";
 import { ImageViewerController } from 'ionic-img-viewer';
@@ -16,7 +16,8 @@ export class HomePage {
     public navCtrl: NavController,
     public auth: AuthProvider, // inyecto auth
     public dbFirebase: FirebaseDbProvider,
-    public imageViewerCtrl: ImageViewerController
+    public imageViewerCtrl: ImageViewerController,
+    public modalCtrl: ModalController
   ) {
     this._imageViewerCtrl = imageViewerCtrl;
   }
@@ -42,8 +43,10 @@ export class HomePage {
     this.auth.logout();
   }
 
-  verInfoRestaurante() {
-    this.navCtrl.push("RestaurantePage")
+  verInfoRestaurante(restaurant) {
+    console.log(restaurant.nombre);
+    let modalSitio = this.modalCtrl.create('RestaurantePage', restaurant);
+    modalSitio.present();
   }
 
   presentImage(myImage) {

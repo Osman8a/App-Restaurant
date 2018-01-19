@@ -14,7 +14,7 @@
   <ion-list>
     <ion-item *ngFor="let sitios of sitios">
       <ion-card>
-        <ion-item (click)="verInfoRestaurante()" type="submit">
+        <ion-item (click)="verInfoRestaurante(sitios)" type="submit">
           <!-- Logo del restaurante -->
           <ion-avatar item-start>
             <img [src]="sitios.image">

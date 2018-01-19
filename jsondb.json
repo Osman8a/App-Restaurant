@@ -2,6 +2,7 @@
   "sitios": {
     "-KubJqw-IRoS-71SqkUZ": {
       "nombre": "El rey del pollo",
+      "lema": "Tu sabor unico",
       "descripcion": "restaurante de pollo, es allí más o menos",
       "image": "https://lh5.googleusercontent.com/p/AF1QipMbmjWk9HXtcknZdwTPKDNkMonrkjBEBCuoKLkW=w408-h544-k-no",
       "lat": "8.098585",
@@ -17,6 +18,7 @@
     },
     "-Kue93NcK3kAgyitAFHW": {
       "nombre": "Restaurante Dulzura",
+      "lema": "Distancia y Categoría",
       "descripcion": "restaurante variadito",
       "image": "https://lh5.googleusercontent.com/p/AF1QipNf1pBu2l0Zl_sZquXwYfJqdHdc8qrrUUtYfgeD=w408-h725-k-no",
       "lat": " 8.110124",
@@ -32,6 +34,7 @@
     },
     "-Kue98RDSTysf_8Hz3KC": {
       "nombre": "Sarrapia",
+      "lema": "Tu mejor paladar",
       "descripcion": "restaurante gourmet",
       "image": "https://lh5.googleusercontent.com/proxy/xDlwI31DdQ0xQtyBWtFdSt4tWo91wFDM118s4DE01ETfJkf8IIXvBKCr-DvYqMbvNZ6zAvYM-x70nS96ovJ5qW1yd8xiENt0fSRel-CyO_v_RxcpiLPa5ids6M1etXDwekhXelCTC2nZWpkZmH1ejD7FUUCHb2c=w408-h262-k-no",
       "lat": "8.117623",

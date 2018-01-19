@@ -9,12 +9,15 @@ import { ModalServiciosPage } from '../modal-servicios/modal-servicios';
 })
 export class RestaurantePage {
 
+  restaurant: any;
+
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
     public modalCtrl: ModalController,
     public viewCtrl: ViewController
   ) {
+    this.restaurant = this.navParams.data;
   }
 
   ionViewDidLoad() {
@@ -26,7 +29,7 @@ export class RestaurantePage {
     modal.present();
   }
 
-  dismiss() {
+  cerrarModal() {
     this.viewCtrl.dismiss();
   }
 
