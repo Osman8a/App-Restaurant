@@ -4,6 +4,9 @@
       <button ion-button icon-only color="danger" (click)="cerrarSesion()">
         <ion-icon name="log-out"></ion-icon>
       </button>
+      <button ion-button icon-only color="danger" (click)="miUbicacion()">
+        <ion-icon name="locate"></ion-icon>
+      </button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
@@ -11,14 +14,17 @@
   <ion-list>
     <ion-item *ngFor="let sitios of sitios">
       <ion-card>
-        <ion-item (click)="verInfoRestaurante()" type="submit">
+        <ion-item (click)="verInfoRestaurante(sitios)" type="submit">
+          <!-- Logo del restaurante -->
           <ion-avatar item-start>
             <img [src]="sitios.image">
           </ion-avatar>
-          <h2>Marty McFly</h2>
+          <!-- Nombre del restaurante -->
+          <h2>{{sitios.nombre}}</h2>
           <p>November 5, 1955</p>
+          <!-- Menú del restaurante -->
         </ion-item>
-        <img [src]="sitios.image">
+        <img *ngIf="sitios.pizarras" [src]="sitios.pizarras.foto" #myImage (click)="presentImage(myImage)" />
         <ion-card-content>
           <!-- Aquí iría la descripción -->
         </ion-card-content>
@@ -28,7 +34,7 @@
           <ion-row no-padding>
             <ion-col>
               <button ion-button clear small color="energy" icon-start class="estrella">
-                <ion-icon name='star'>1</ion-icon>
+                <ion-icon name='star'>{{sitios.favoritos}}</ion-icon>
               </button>
             </ion-col>
             <ion-col text-center>
@@ -43,10 +49,10 @@
         <ion-grid>
           <ion-row>
             <ion-col text-center>
-              <ion-icon name="clock" color="four"></ion-icon>Desde: 15:04
+              <ion-icon name="clock" color="four"></ion-icon>Desde: {{sitios.pizarras.desde}}
             </ion-col>
             <ion-col text-center>
-              <ion-icon name="clock" color="danger"></ion-icon>Hasta: 22:59
+              <ion-icon name="clock" color="danger"></ion-icon>Hasta: {{sitios.pizarras.hasta}}
             </ion-col>
           </ion-row>
         </ion-grid>
@@ -55,10 +61,10 @@
         <ion-grid>
           <ion-row>
             <ion-col text-center>
-              <ion-icon name="book" color="four"></ion-icon>Max: 2000 $
+              <ion-icon name="book" color="four"></ion-icon>Max: {{sitios.pizarras.max}} $
             </ion-col>
             <ion-col text-center>
-              <ion-icon name="book" color="danger"></ion-icon>Min: 5500 $
+              <ion-icon name="book" color="danger"></ion-icon>Min: {{sitios.pizarras.min}} $
             </ion-col>
           </ion-row>
         </ion-grid>
