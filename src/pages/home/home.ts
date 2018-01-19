@@ -54,4 +54,8 @@ export class HomePage {
     imageViewer.onDidDismiss(() => console.log("imagen agrandada"));
   }
 
+  miUbicacion() {
+    this.navCtrl.push("MiUbicacionPage")
+  }
+
 }
