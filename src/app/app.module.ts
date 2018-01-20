@@ -13,6 +13,8 @@ import { AngularFireAuthModule } from "angularfire2/auth"; // Firebase login
 import { Facebook } from "@ionic-native/facebook"; //facebook
 import { IonicImageViewerModule } from 'ionic-img-viewer';
 import { Geolocation } from '@ionic-native/geolocation';
+import { LaunchNavigator } from '@ionic-native/launch-navigator';
+
 
 import { MyApp } from "./app.component";
 import { HomePage } from "../pages/home/home";
@@ -53,7 +55,8 @@ export const firebaseConfig = {
     GooglePlus,
     Facebook,
     FirebaseDbProvider,
-    Geolocation
+    Geolocation,
+    LaunchNavigator
   ]
 })
 export class AppModule { }

@@ -12,12 +12,13 @@
 
 <ion-content class="card-background-page">
   <ion-card>
+    <!-- Fab para visualizar el boton que navegar -->
     <ion-fab right top>
       <button ion-fab color="four">
         <ion-icon color ios="ios-arrow-dropdown-circle" md="md-arrow-dropdown-circle"></ion-icon>
       </button>
       <ion-fab-list side="bottom">
-        <button ion-fab>
+        <button (click)="comoLlegar()" ion-fab>
           <ion-icon name="navigate"></ion-icon>
         </button>
       </ion-fab-list>

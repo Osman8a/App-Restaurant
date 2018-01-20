@@ -126,6 +126,10 @@
   version "4.5.2"
   resolved "https://registry.yarnpkg.com/@ionic-native/google-plus/-/google-plus-4.5.2.tgz#f5d2c8a2909ad94e28398b758ce34a1e5aaefe64"
 
+"@ionic-native/launch-navigator@^4.5.2":
+  version "4.5.2"
+  resolved "https://registry.yarnpkg.com/@ionic-native/launch-navigator/-/launch-navigator-4.5.2.tgz#027c654923788b2e13124a4a18f33eb96609d3c0"
+
 "@ionic-native/splash-screen@4.4.0":
   version "4.4.0"
   resolved "https://registry.yarnpkg.com/@ionic-native/splash-screen/-/splash-screen-4.4.0.tgz#81ed723d7fd3f0d643072b5461fa0c32dcc330b1"
@@ -855,9 +859,17 @@ cordova-common@^2.1.1, cordova-common@^2.2.0:
     underscore "^1.8.3"
     unorm "^1.3.3"
 
+cordova-plugin-actionsheet@^2.3.3:
+  version "2.3.3"
+  resolved "https://registry.yarnpkg.com/cordova-plugin-actionsheet/-/cordova-plugin-actionsheet-2.3.3.tgz#e9261b2d004a8da407388d60df534c156c52ff11"
+
 cordova-plugin-device@^1.1.7:
   version "1.1.7"
   resolved "https://registry.yarnpkg.com/cordova-plugin-device/-/cordova-plugin-device-1.1.7.tgz#fc94111be6932628c66868938ddf3dc82c9fbfe6"
+
+cordova-plugin-dialogs@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/cordova-plugin-dialogs/-/cordova-plugin-dialogs-2.0.1.tgz#37fef1512596c8d5df9543fb78724590f767dcf3"
 
 cordova-plugin-facebook4@^1.9.1:
   version "1.9.1"
@@ -3632,6 +3644,10 @@ uglifyjs-webpack-plugin@^0.4.6:
 uid-number@^0.0.6:
   version "0.0.6"
   resolved "https://registry.yarnpkg.com/uid-number/-/uid-number-0.0.6.tgz#0ea10e8035e8eb5b8e4449f06da1c730663baa81"
+
+uk.co.workingedge.phonegap.plugin.launchnavigator@^4.1.3:
+  version "4.1.3"
+  resolved "https://registry.yarnpkg.com/uk.co.workingedge.phonegap.plugin.launchnavigator/-/uk.co.workingedge.phonegap.plugin.launchnavigator-4.1.3.tgz#12c76dca7cb9826694a3884c28859d99a721ff35"
 
 ultron@~1.1.0:
   version "1.1.1"
