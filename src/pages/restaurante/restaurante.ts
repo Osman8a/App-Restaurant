@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController, ViewController } from 'ionic-angular';
 import { ModalServiciosPage } from '../modal-servicios/modal-servicios';
+import { LaunchNavigator } from '@ionic-native/launch-navigator';
 
 @IonicPage()
 @Component({
@@ -15,7 +16,8 @@ export class RestaurantePage {
     public navCtrl: NavController,
     public navParams: NavParams,
     public modalCtrl: ModalController,
-    public viewCtrl: ViewController
+    public viewCtrl: ViewController,
+    private launchNavigator: LaunchNavigator
   ) {
     this.restaurant = this.navParams.data;
   }
@@ -31,6 +33,16 @@ export class RestaurantePage {
 
   cerrarModal() {
     this.viewCtrl.dismiss();
+  }
+
+  comoLlegar() {
+    let destino = this.restaurant.lat + ', ' + this.restaurant.lng;
+    this.launchNavigator.navigate(destino)
+      .then(
+      success => console.log('Launched navigator'),
+      error => console.log('Error launching navigator', error)
+      );
+
   }
 
 }
