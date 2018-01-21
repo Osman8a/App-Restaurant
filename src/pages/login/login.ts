@@ -14,6 +14,7 @@ import firebase from "firebase";
 import { HomePage } from "../home/home";
 import { WelcomePage } from "../welcome/welcome";
 
+
 /**
  * Generated class for the LoginPage page.
  *
@@ -36,7 +37,7 @@ export class LoginPage {
     public alertCtrl: AlertController,
     public googlePlus: GooglePlus,
     private af: AngularFireAuth
-  ) {}
+  ) { }
 
   facebookLogin() {
     this.auth.facebookLogin();
@@ -82,7 +83,7 @@ export class LoginPage {
       .then(() => {
         let user: any = this.af.auth.currentUser;
         if (user.emailVerified) {
-          this.navCtrl.push(HomePage);
+          // this.navCtrl.push(MisTabsPage);
         } else {
           swal(
             "Tu correo no ha sido validado",
