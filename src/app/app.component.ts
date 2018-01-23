@@ -5,8 +5,9 @@ import { SplashScreen } from "@ionic-native/splash-screen";
 import { AuthProvider } from "../providers/auth/auth";
 
 //import { DbProvider } from "../providers/db/db";
-import { HomePage } from "../pages/home/home";
+
 import { WelcomePage } from "../pages/welcome/welcome";
+
 
 @Component({
   templateUrl: "app.html"
@@ -26,10 +27,8 @@ export class MyApp {
       // Here you can do any higher level native things you might need.
 
       this.auth.Session.subscribe(session => {
-        //if(session.emailVerified===!null)
-
-        if (session && session.emailVerified) {
-          this.rootPage = HomePage; //en caso de que inicie session correctament
+        if (session && session.emailVerified) {// si existe unaa session y si se encuentra verificado
+          this.rootPage = 'MisTabsPage'; //en caso de que inicie session correctament
         } else {
           this.rootPage = WelcomePage; // en caso de que falle  'LoginPage'
         }

@@ -16,4 +16,16 @@ export class FirebaseDbProvider {
   getSitios() {
     return this.afDB.list("sitios").valueChanges();
   }
+
+  getRestaurantFavoritos() {
+    return this.afDB.list("favoritos/" + this.auth.getUser()).valueChanges();
+  }
+
+  agregarFavorito(restaurant) {
+    restaurant.id = Date.now();
+    return this.afDB.database.ref('favoritos/' + this.auth.getUser() + '/' + restaurant.id)
+      .set(restaurant)
+      .then((res) => console.log(`se guardo`))
+      .catch(err => console.log(`hay un error acá ${err}`))
+  }
 }

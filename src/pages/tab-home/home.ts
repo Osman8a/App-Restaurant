@@ -29,7 +29,7 @@ export class HomePage {
   ionViewDidEnter() {
     this.dbFirebase.getSitios().subscribe(sitios => {
       this.sitios = sitios;
-      console.log(this.sitios);
+      //console.log(this.sitios);
     });
   }
 
