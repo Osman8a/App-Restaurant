@@ -17,7 +17,7 @@ import { LaunchNavigator } from '@ionic-native/launch-navigator';
 
 
 import { MyApp } from "./app.component";
-import { HomePage } from "../pages/home/home";
+import { HomePage } from "../pages/tab-home/home";
 import { WelcomePage } from "../pages/welcome/welcome";
 import { SignupPage } from "../pages/signup/signup";
 import { SignaturePadModule } from "angular2-signaturepad";

@@ -1,10 +1,10 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons end>
-      <button ion-button icon-only color="danger" (click)="cerrarSesion()">
+      <button ion-button icon-only color="light" (click)="cerrarSesion()">
         <ion-icon name="log-out"></ion-icon>
       </button>
-      <button ion-button icon-only color="danger" (click)="miUbicacion()">
+      <button ion-button icon-only color="light" (click)="miUbicacion()">
         <ion-icon name="locate"></ion-icon>
       </button>
     </ion-buttons>
@@ -21,7 +21,7 @@
           </ion-avatar>
           <!-- Nombre del restaurante -->
           <h2>{{sitios.nombre}}</h2>
-          <p>November 5, 1955</p>
+          <p></p>
           <!-- Menú del restaurante -->
         </ion-item>
         <img *ngIf="sitios.pizarras" [src]="sitios.pizarras.foto" #myImage (click)="presentImage(myImage)" />
@@ -32,10 +32,10 @@
         <!-- donde se encuentra favorito, distancia y compartir-->
         <ion-grid>
           <ion-row no-padding>
-            <ion-col>
-              <button ion-button clear small color="energy" icon-start class="estrella">
-                <ion-icon name='star'>{{sitios.favoritos}}</ion-icon>
-              </button>
+            <ion-col text-center>
+              <!-- <button ion-button clear small color="energy" icon-start class="estrella"> -->
+              <ion-icon color="energy" name='star'>{{sitios.favoritos}}</ion-icon>
+              <!-- </button> -->
             </ion-col>
             <ion-col text-center>
               <ion-icon name="navigate" color="primary"> 4.675</ion-icon>

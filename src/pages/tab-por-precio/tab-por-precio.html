@@ -1,18 +1,82 @@
-<!--
-  Generated template for the TabPorPrecioPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
-
-  <ion-navbar>
-    <ion-title>TabPorPrecio</ion-title>
-  </ion-navbar>
-
+  <ion-toolbar>
+    <ion-buttons end>
+      <button ion-button icon-only color="light" (click)="cerrarSesion()">
+        <ion-icon name="log-out"></ion-icon>
+      </button>
+      <button ion-button icon-only color="light" (click)="miUbicacion()">
+        <ion-icon name="locate"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
 </ion-header>
+<ion-content>
+  <ion-list>
+    <!-- Rango para el precio -->
+    <ion-item>
+      <ion-range dualKnobs="true" pin="true" [(ngModel)]="structure" color="four">
+        <ion-icon range-left small name="cash" color="verde"></ion-icon>
+        <ion-icon range-right name="cash" color="verde"></ion-icon>
+      </ion-range>
+    </ion-item>
+    <!-- //////////////////////////// -->
+    <ion-item *ngFor="let sitios of sitios">
+      <ion-card>
+        <ion-item type="submit">
+          <!-- Logo del restaurante -->
+          <ion-avatar item-start>
+            <img [src]="sitios.image">
+          </ion-avatar>
+          <!-- Nombre del restaurante -->
+          <h2>{{sitios.nombre}}</h2>
+          <p></p>
+          <!-- Menú del restaurante -->
+        </ion-item>
+        <img *ngIf="sitios.pizarras" [src]="sitios.pizarras.foto" #myImage (click)="presentImage(myImage)" />
+        <ion-card-content>
+          <!-- Aquí iría la descripción -->
+        </ion-card-content>
 
+        <!-- donde se encuentra favorito, distancia y compartir-->
+        <ion-grid>
+          <ion-row no-padding>
+            <ion-col text-center>
+              <!-- <button ion-button clear small color="energy" icon-start class="estrella"> -->
+              <ion-icon color="energy" name='star'>{{sitios.favoritos}}</ion-icon>
+              <!-- </button> -->
+            </ion-col>
+            <ion-col text-center>
+              <ion-icon name="navigate" color="primary"> 4.675</ion-icon>
+            </ion-col>
+            <ion-col text-center>
+              <ion-icon name="share" color="facebook"></ion-icon>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+        <!-- donde se encuentra el horario desde y haste -->
+        <ion-grid>
+          <ion-row>
+            <ion-col text-center>
+              <ion-icon name="clock" color="four"></ion-icon>Desde: {{sitios.pizarras.desde}}
+            </ion-col>
+            <ion-col text-center>
+              <ion-icon name="clock" color="danger"></ion-icon>Hasta: {{sitios.pizarras.hasta}}
+            </ion-col>
+          </ion-row>
+        </ion-grid>
 
-<ion-content padding>
-
+        <!-- donde se encuentra el precio minimo y maximo -->
+        <ion-grid>
+          <ion-row>
+            <ion-col text-center>
+              <ion-icon name="book" color="four"></ion-icon>Max: {{sitios.pizarras.max}} $
+            </ion-col>
+            <ion-col text-center>
+              <ion-icon name="book" color="danger"></ion-icon>Min: {{sitios.pizarras.min}} $
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card>
+    </ion-item>
+  </ion-list>
 </ion-content>

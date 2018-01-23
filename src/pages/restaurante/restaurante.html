@@ -26,12 +26,12 @@
     <!-- Imagen del restaurat y Lugar -->
     <img class="card-img" *ngIf="restaurant.image" [src]="restaurant.image" />
     <div class="card-title">{{restaurant.nombre}}</div>
-    <div class="card-subtitle">{{restaurant.lema}}</div>
+    <div class="card-subtitle">{{ restaurant.lema }}</div>
     <!-- Favoritos(estrella), comentarios(burbuja) y Me gusta(corazon),  -->
     <ion-grid>
       <ion-row class="card-icos">
         <ion-col>
-          <ion-icon color="energy" name="star"></ion-icon>
+          <ion-icon (click)="addFavorito(restaurant)" color="energy" name="star"></ion-icon>
           <ion-badge item-end>{{restaurant.favoritos}}</ion-badge>
         </ion-col>
         <ion-col>
@@ -70,8 +70,8 @@
           </ion-col>
         </ion-row>
       </ion-grid>
-      <!-- Descripción del restaurante -->
-      <p>{{restaurant.descripcion}}</p>
+      <!-- Dirección del restaurante -->
+      <p>{{address}}</p>
 
     </ion-card-content>
   </ion-card>

@@ -101,6 +101,10 @@ export class AuthProvider {
     return this.afAuth.authState;
   }
 
+  getUser() {
+    return this.afAuth.auth.currentUser.uid;
+  }
+
   /**
    * @function logout permite cerrar session
    * @memberof AuthProvider

@@ -11,8 +11,6 @@ import swal from "sweetalert2"; // alertas
 
 import { AngularFireAuth } from "angularfire2/auth";
 import firebase from "firebase";
-import { HomePage } from "../home/home";
-import { WelcomePage } from "../welcome/welcome";
 
 
 /**

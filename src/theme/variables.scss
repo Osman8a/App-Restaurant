@@ -32,9 +32,10 @@ $colors: (
   lightprimary: #b5b5b7,
   facebook: #3b5998,
   primary: #488aff,
+  verde : #0d9c2c,
 );
 
-$toolbar-background: color($colors, primary);
+$toolbar-background: color($colors, danger);
 // App iOS Variables
 // --------------------------------------------------
 // iOS only Sass variables can go here
