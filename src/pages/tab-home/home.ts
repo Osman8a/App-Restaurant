@@ -55,6 +55,18 @@ export class HomePage {
       });
   }
 
+  emailShare(nombre, foto) {
+    this.socialSharing.shareViaEmail('Menú Para Hoy', `¡Hola!, te recomiendo el restaurant "${nombre}", este es su menú del día ${nombre}`, null /*iría el correo*/).then(() => {
+      // Success!
+    }).catch(() => {
+      // Error!
+    });
+  }
+
+  instagramShare(nombre, foto) {
+    this.socialSharing.shareViaInstagram(`¡Hola!, te recomiendo el restaurant "${nombre}", este es su menú del día `, `${foto}`)
+  }
+
   ionViewDidLoad() {
     console.log("estaran ?" + this.sitios);
   }
