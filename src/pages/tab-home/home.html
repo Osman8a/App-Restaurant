@@ -48,7 +48,7 @@
                   <ion-icon name="share"></ion-icon>
                 </button>
                 <ion-fab-list side="top">
-                  <button color="facebook" ion-fab>
+                  <button (click)="facebookShare(sitios.nombre,sitios.pizarras.foto)" color="facebook" ion-fab>
                     <ion-icon name="logo-facebook"></ion-icon>
                   </button>
                   <button (click)="twitterShare(sitios.nombre,sitios.pizarras.foto)" ion-fab>

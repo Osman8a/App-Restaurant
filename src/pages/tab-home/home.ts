@@ -46,8 +46,8 @@ export class HomePage {
       });
   }
 
-  facebookShare() {
-    this.socialSharing.shareViaFacebook("Message via Twitter", null /*Image*/, "https://pointdeveloper.com")
+  facebookShare(nombre, foto) {
+    this.socialSharing.shareViaFacebook(`¡Hola!, te recomiendo el restaurant "${nombre}", este es su menú del día `, `${foto}`, null/* url */)
       .then(() => {
         // Success!
       }).catch(() => {
