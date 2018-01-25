@@ -29,7 +29,7 @@ export class HomePage {
 
 
   whatsapShare(nombre, foto) {
-    this.socialSharing.shareViaWhatsApp(`¡Hola!, te recomiendo el restaurant ${nombre}, este es su menú del día `, null, `${foto}` /* url */)
+    this.socialSharing.shareViaWhatsApp(`¡Hola!, te recomiendo el restaurant "${nombre}", este es su menú del día `, `${foto}`, null/* url */)
       .then(() => {
         // Success!
       }).catch(() => {
@@ -37,8 +37,8 @@ export class HomePage {
       });
   }
 
-  twitterShare() {
-    this.socialSharing.shareViaTwitter("Message via Twitter", null /*Image*/, "https://pointdeveloper.com")
+  twitterShare(nombre, foto) {
+    this.socialSharing.shareViaTwitter(`¡Hola!, te recomiendo el restaurant "${nombre}", este es su menú del día `, `${foto}`, null/* url */)
       .then(() => {
         // Success!
       }).catch(() => {
