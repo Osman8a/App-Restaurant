@@ -28,8 +28,8 @@ export class HomePage {
   }
 
 
-  whatsapShare(nombre) {
-    this.socialSharing.shareViaWhatsApp(`¡Hola!, te recomiendo el restaurant ${nombre} `, null, "https://pointdeveloper.com/" /* url */)
+  whatsapShare(nombre, foto) {
+    this.socialSharing.shareViaWhatsApp(`¡Hola!, te recomiendo el restaurant ${nombre}, este es su menú del día `, null, `${foto}` /* url */)
       .then(() => {
         // Success!
       }).catch(() => {
