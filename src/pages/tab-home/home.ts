@@ -3,6 +3,8 @@ import { NavController, ModalController } from "ionic-angular";
 import { AuthProvider } from "../../providers/auth/auth"; // importo
 import { FirebaseDbProvider } from "../../providers/firebase-db/firebase-db";
 import { ImageViewerController } from 'ionic-img-viewer';
+import { SocialSharing } from '@ionic-native/social-sharing';
+
 
 @Component({
   selector: "page-home",
@@ -11,25 +13,75 @@ import { ImageViewerController } from 'ionic-img-viewer';
 export class HomePage {
   _imageViewerCtrl: ImageViewerController;
   sitios: any;
+  imagen: any;
+  nombre: any;
 
   constructor(
     public navCtrl: NavController,
     public auth: AuthProvider, // inyecto auth
     public dbFirebase: FirebaseDbProvider,
     public imageViewerCtrl: ImageViewerController,
-    public modalCtrl: ModalController
+    public modalCtrl: ModalController,
+    private socialSharing: SocialSharing
   ) {
     this._imageViewerCtrl = imageViewerCtrl;
   }
 
-  ionViewDidLoad() {
-    console.log("se ha cargado Home");
+
+  whatsapShare(nombre, foto) {
+    this.socialSharing.shareViaWhatsApp(`¡Hola!, te recomiendo el restaurant "${nombre}", este es su menú del día `, `${foto}`, null/* url */)
+      .then(() => {
+        // Success!
+      }).catch(() => {
+        // Error!
+      });
   }
 
+  twitterShare(nombre, foto) {
+    this.socialSharing.shareViaTwitter(`¡Hola!, te recomiendo el restaurant "${nombre}", este es su menú del día `, `${foto}`, null/* url */)
+      .then(() => {
+        // Success!
+      }).catch(() => {
+        // Error!
+      });
+  }
+
+  facebookShare(nombre, foto) {
+    this.socialSharing.shareViaFacebook(`¡Hola!, te recomiendo el restaurant "${nombre}", este es su menú del día `, `${foto}`, null/* url */)
+      .then(() => {
+        // Success!
+      }).catch(() => {
+        // Error!
+      });
+  }
+
+  emailShare(nombre, foto) {
+    this.socialSharing.shareViaEmail(`¡Hola!, te recomiendo el restaurant "${nombre}", este es su menú del día`, `Menú para Hoy`, null /*iría el correo*/, null, null, `${foto}`)
+      .then(() => {
+        // Success!
+      }).catch(() => {
+        // Error!
+      });
+  }
+
+  instagramShare(nombre, foto) {
+    this.socialSharing.shareViaInstagram(`¡Hola!, te recomiendo el restaurant "${nombre}", este es su menú del día `, `${foto}`)
+      .then(() => {
+        // Success!
+      }).catch(() => {
+        // Error!
+      });
+  }
+
+  ionViewDidLoad() {
+    console.log("estaran ?" + this.sitios);
+  }
+
+
   ionViewDidEnter() {
+    //Obtengo todos mis sitios en firebase
     this.dbFirebase.getSitios().subscribe(sitios => {
       this.sitios = sitios;
-      //console.log(this.sitios);
     });
   }
 
