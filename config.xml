@@ -100,4 +100,5 @@
         <variable name="GEOLOCATION_USAGE_DESCRIPTION" value="La app necesita geolocalización" />
     </plugin>
     <plugin name="uk.co.workingedge.phonegap.plugin.launchnavigator" spec="^4.1.3" />
+    <plugin name="cordova-plugin-x-socialsharing" spec="^5.2.1" />
 </widget>

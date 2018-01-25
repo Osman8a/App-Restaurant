@@ -5,6 +5,7 @@ import { SplashScreen } from "@ionic-native/splash-screen";
 import { StatusBar } from "@ionic-native/status-bar";
 import { GooglePlus } from "@ionic-native/google-plus";
 
+
 import { AuthProvider } from "../providers/auth/auth";
 
 import { AngularFireModule } from "angularfire2"; // Firebase
@@ -23,6 +24,7 @@ import { SignupPage } from "../pages/signup/signup";
 import { SignaturePadModule } from "angular2-signaturepad";
 import { FirebaseDbProvider } from '../providers/firebase-db/firebase-db';
 import { ModalServiciosPage } from "../pages/modal-servicios/modal-servicios";
+import { SocialSharing } from '@ionic-native/social-sharing';
 
 //import { SQLite } from "@ionic-native/sqlite";
 
@@ -56,7 +58,8 @@ export const firebaseConfig = {
     Facebook,
     FirebaseDbProvider,
     Geolocation,
-    LaunchNavigator
+    LaunchNavigator,
+    SocialSharing
   ]
 })
 export class AppModule { }
