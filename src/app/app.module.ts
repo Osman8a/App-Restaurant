@@ -11,7 +11,6 @@ import { AuthProvider } from "../providers/auth/auth";
 import { AngularFireModule } from "angularfire2"; // Firebase
 import { AngularFireDatabaseModule } from "angularfire2/database"; // Firebase database
 import { AngularFireAuthModule } from "angularfire2/auth"; // Firebase login
-import { Facebook } from "@ionic-native/facebook"; //facebook
 import { IonicImageViewerModule } from 'ionic-img-viewer';
 import { Geolocation } from '@ionic-native/geolocation';
 import { LaunchNavigator } from '@ionic-native/launch-navigator';
@@ -33,6 +32,7 @@ export const firebaseConfig = {
   apiKey: "AIzaSyBmEItiYbG-xCLiBpBvwOZ5PY4LVPv76TI",
   authDomain: "menu-para-hoy-1514454952723.firebaseapp.com",
   databaseURL: "https://menu-para-hoy-1514454952723.firebaseio.com",
+  projectId: "menu-para-hoy-1514454952723",
   storageBucket: "menu-para-hoy-1514454952723.appspot.com",
   messagingSenderId: "767495751556"
 };
@@ -55,7 +55,6 @@ export const firebaseConfig = {
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     AuthProvider,
     GooglePlus,
-    Facebook,
     FirebaseDbProvider,
     Geolocation,
     LaunchNavigator,

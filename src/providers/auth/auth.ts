@@ -1,4 +1,3 @@
-import { Facebook } from "@ionic-native/facebook";
 import { AngularFireAuth } from "angularfire2/auth";
 import { Injectable } from "@angular/core";
 import * as firebase from "firebase";
@@ -14,30 +13,30 @@ import * as firebase from "firebase";
 
 @Injectable()
 export class AuthProvider {
-  constructor(private afAuth: AngularFireAuth, private facebook: Facebook) {
+  constructor(private afAuth: AngularFireAuth) {
     console.log("Hello AuthProvider Provider");
   }
 
-  facebookLogin() {
-    this.facebook
-      .login(["email"])
-      .then(res => {
-        const facebookCredential = firebase.auth.FacebookAuthProvider.credential(
-          res.authResponse.accessToken
-        );
-        this.afAuth.auth
-          .signInWithCredential(facebookCredential)
-          .then(res => {
-            alert(`Login Saatisfactorio ${res}`); //
-          })
-          .catch(err => {
-            alert(`error durante la authenticacion ${err}`);
-          });
-      })
-      .catch(err => {
-        alert(`error inespeerado ${err}`);
-      });
-  }
+  // facebookLogin() {
+  //   this.facebook
+  //     .login(["email"])
+  //     .then(res => {
+  //       const facebookCredential = firebase.auth.FacebookAuthProvider.credential(
+  //         res.authResponse.accessToken
+  //       );
+  //       this.afAuth.auth
+  //         .signInWithCredential(facebookCredential)
+  //         .then(res => {
+  //           alert(`Login Saatisfactorio ${res}`); //
+  //         })
+  //         .catch(err => {
+  //           alert(`error durante la authenticacion ${err}`);
+  //         });
+  //     })
+  //     .catch(err => {
+  //       alert(`error inespeerado ${err}`);
+  //     });
+  // }
 
   /**
    *

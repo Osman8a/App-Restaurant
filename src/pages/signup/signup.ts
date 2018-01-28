@@ -12,6 +12,7 @@ import { GooglePlus } from "@ionic-native/google-plus";
 import { AngularFireAuth } from "angularfire2/auth";
 import firebase from "firebase";
 import swal from "sweetalert2";
+import { LoginPage } from "../login/login";
 /**
  * Generated class for the SignupPage page.
  *
@@ -25,7 +26,7 @@ import swal from "sweetalert2";
   templateUrl: "signup.html"
 })
 export class SignupPage {
-  user = { secondemail: "", email: "", password: "", nombre: "" };
+  user = { secondemail: "", email: "", password: "" };
   fireauth = firebase.auth();
   constructor(
     public navCtrl: NavController,
@@ -34,14 +35,10 @@ export class SignupPage {
     public alertCtrl: AlertController,
     public googlePlus: GooglePlus,
     private af: AngularFireAuth
-  ) {}
+  ) { }
 
   ionViewDidLoad() {
     console.log("ionViewDidLoad SignupPage");
-  }
-
-  facebookLogin() {
-    this.auth.facebookLogin();
   }
 
   /**
@@ -95,27 +92,39 @@ export class SignupPage {
               "Varifica tu correo para formar parte de la familia Menú para hoy!",
               "success"
             );
+            this.navCtrl.push('LoginPage')
           })
-          .catch(err => {
-            let alert = this.alertCtrl.create({
-              title: "Error aquii",
-              subTitle: err.message,
-              buttons: ["Aceptar"]
-            });
-            alert.present(); // si se produce un error lo muestra
+          .catch((err) => {
+            var errorCode = err.code;
+            //Cuando es un correo que ya se encuentra registrado en Base de Datos
+            if (errorCode === 'auth/email-already-in-use') {
+              swal(
+                "Hey!",
+                "Recuerda que ya te encuentras registraado en nuestra App!",
+                "error"
+              );
+            } else {
+              //Acá atrapa algun error que no esté previsto
+              let alert = this.alertCtrl.create({
+                title: "Error aquii",
+                subTitle: err.message,
+                buttons: ["Aceptar"]
+              });
+              alert.present(); // si se produce un error lo muestra
+            }
           });
         break;
-      case 1:
+      case 1: //Cuando el formulario está vacio
         swal(
           "Existen elementos en el formulario que están vacios",
           "Intentalo Nuevamente!",
           "error"
         );
         break;
-      case 2:
+      case 2: // cuando los correos no coinciden
         swal("Ambos correos no coincide", "Intentalo Nuevamente!", "error");
         break;
-      case 3:
+      case 3: //Cuaando es un correo no valido
         swal(
           "Acabas de ingresar un correo no valido",
           "Intentalo Nuevamente!",

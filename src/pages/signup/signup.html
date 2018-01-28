@@ -9,11 +9,6 @@
 <ion-content>
   <form>
     <ion-item>
-      <ion-label floating> Nombre </ion-label>
-      <ion-input [(ngModel)]="user.nombre" name="nombre" type="text" autocapitalize="off" novalidate>
-      </ion-input>
-    </ion-item>
-    <ion-item>
       <ion-label floating> Email </ion-label>
       <ion-input [(ngModel)]="user.email" name="email" type="text" autocapitalize="off" novalidate>
       </ion-input>
@@ -37,10 +32,6 @@
       <button ion-button (click)="googleAuth()" block color="danger" *ngIf="!userProfile">
         <ion-icon name="logo-googleplus"></ion-icon>
         SignUp con Google
-      </button>
-      <button ion-button (click)="facebookLogin()" block color="facebook">
-        <ion-icon name="logo-facebook"></ion-icon>
-        SignUp with Facebook
       </button>
     </div>
   </form>

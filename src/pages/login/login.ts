@@ -3,14 +3,15 @@ import {
   IonicPage,
   NavController,
   NavParams,
-  AlertController
+  AlertController,
+  Platform
 } from "ionic-angular"; //AlertController para mostrar los mensajes de error
 import { AuthProvider } from "../../providers/auth/auth"; // nustro proveedor
 import { GooglePlus } from "@ionic-native/google-plus";
 import swal from "sweetalert2"; // alertas
-
 import { AngularFireAuth } from "angularfire2/auth";
 import firebase from "firebase";
+
 
 
 /**
@@ -34,12 +35,24 @@ export class LoginPage {
     public auth: AuthProvider,
     public alertCtrl: AlertController,
     public googlePlus: GooglePlus,
-    private af: AngularFireAuth
+    private af: AngularFireAuth,
+    private platform: Platform
   ) { }
 
   facebookLogin() {
-    this.auth.facebookLogin();
+    // this.facebook.login(['email', 'public_profile']).then((res) => {
+    //   const facebookCreds = firebase.auth.FacebookAuthProvider.credential(res.authResponse.accessToken);
+    //   firebase.auth().signInWithCredential(facebookCreds).then((res) => {
+    //     let currentuser = firebase.auth().currentUser;
+    //     window.localStorage.setItem('currentuser', JSON.stringify(currentuser.displayName));
+    //     alert(currentuser.displayName);
+    //     this.navCtrl.pop();
+    //   }, (err) => {
+    //     alert('Login not successful' + err);
+    //   })
+    // })
   }
+
 
   googleAuth() {
     this.googlePlus
@@ -81,7 +94,7 @@ export class LoginPage {
       .then(() => {
         let user: any = this.af.auth.currentUser;
         if (user.emailVerified) {
-          // this.navCtrl.push(MisTabsPage);
+          this.navCtrl.push('MisTabsPage');
         } else {
           swal(
             "Tu correo no ha sido validado",
@@ -92,12 +105,24 @@ export class LoginPage {
         }
       })
       .catch(err => {
-        let alert = this.alertCtrl.create({
-          title: "Error",
-          subTitle: err.message,
-          buttons: ["Aceptar"]
-        });
-        alert.present();
+        var errorCode = err.code;
+        switch (errorCode) {
+          case 'auth/user-not-found':
+            swal(
+              "No te encuentras en nuestra Base de Datos",
+              "Registrate e ingresa nuevamente para que disfrutes de Menú para Hoy",
+              "error"
+            );
+            break;
+          default:
+            let alert = this.alertCtrl.create({
+              title: "Error",
+              subTitle: err.message,
+              buttons: ["Aceptar"]
+            });
+            alert.present();
+            break;
+        }
       });
   }
 }
