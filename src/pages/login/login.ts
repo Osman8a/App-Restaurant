@@ -114,6 +114,20 @@ export class LoginPage {
               "error"
             );
             break;
+          case 'auth/invalid-email':
+            swal(
+              "Hay problemas con tu correo",
+              "Verifica que hayas ingresado un correo correcto",
+              "error"
+            );
+            break;
+          case 'auth/wrong-password':
+            swal(
+              "Hey",
+              "Debes ingresar una contraseña correcta",
+              "error"
+            );
+            break;
           default:
             let alert = this.alertCtrl.create({
               title: "Error",

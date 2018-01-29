@@ -12,9 +12,9 @@
 </ion-header>
 <ion-content>
   <ion-list>
-    <ion-item *ngFor="let sitios of sitios">
+    <ion-item *ngFor="let sitios of sitios; let i = index">
       <ion-card>
-        <ion-item (click)="verInfoRestaurante(sitios)" type="submit">
+        <ion-item (click)="verInfoRestaurante(sitios, i)" type="submit">
           <!-- Logo del restaurante -->
           <ion-avatar item-start>
             <img [src]="sitios.image">

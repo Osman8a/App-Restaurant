@@ -1,13 +1,15 @@
 {
   "sitios": {
-    "-KubJqw-IRoS-71SqkUZ": {
+    "1517185431162": {
+      "id": "1517185431162",
       "nombre": "El rey del pollo",
       "lema": "Tu sabor unico",
       "descripcion": "restaurante de pollo, es allí más o menos",
       "image": "https://lh5.googleusercontent.com/p/AF1QipMbmjWk9HXtcknZdwTPKDNkMonrkjBEBCuoKLkW=w408-h544-k-no",
       "lat": 8.098585,
       "lng": -63.559743,
-      "favoritos": "0",
+      "favoritos": 0,
+      "valoracion": 50,
       "pizarras": {
         "foto": "https://firebasestorage.googleapis.com/v0/b/menu-para-hoy-1514454952723.appspot.com/o/pizarra-rey-del-pollo.jpg?alt=media&token=0a3dec55-d7bd-409a-8f99-fd2e813a6c1a",
         "desde": "15:04",
@@ -16,14 +18,16 @@
         "max": "5500"
       }
     },
-    "-Kue93NcK3kAgyitAFHW": {
+    "1517185433863": {
+      "id": "1517185433863",
       "nombre": "Restaurante Dulzura",
       "lema": "Distancia y Categoría",
       "descripcion": "restaurante variadito",
       "image": "https://lh5.googleusercontent.com/p/AF1QipNf1pBu2l0Zl_sZquXwYfJqdHdc8qrrUUtYfgeD=w408-h725-k-no",
       "lat": 8.110124,
       "lng": -63.540945,
-      "favoritos": "6",
+      "favoritos": 6,
+      "valoracion": 70,
       "pizarras": {
         "foto": "https://firebasestorage.googleapis.com/v0/b/menu-para-hoy-1514454952723.appspot.com/o/Restaurante%20Dulzura.JPG?alt=media&token=10cb9c79-d891-4ee2-a4db-97a93f04ef08",
         "desde": "1:00",
@@ -32,14 +36,16 @@
         "max": "5000"
       }
     },
-    "-Kue98RDSTysf_8Hz3KC": {
+    "1517185434993": {
+      "id": "1517185434993",
       "nombre": "Sarrapia",
       "lema": "Tu mejor paladar",
       "descripcion": "restaurante gourmet",
       "image": "https://lh5.googleusercontent.com/proxy/xDlwI31DdQ0xQtyBWtFdSt4tWo91wFDM118s4DE01ETfJkf8IIXvBKCr-DvYqMbvNZ6zAvYM-x70nS96ovJ5qW1yd8xiENt0fSRel-CyO_v_RxcpiLPa5ids6M1etXDwekhXelCTC2nZWpkZmH1ejD7FUUCHb2c=w408-h262-k-no",
       "lat": 8.117623,
       "lng": -63.536771,
-      "favoritos": "26",
+      "favoritos": 26,
+      "valoracion": 90,
       "pizarras": {
         "foto": "https://firebasestorage.googleapis.com/v0/b/menu-para-hoy-1514454952723.appspot.com/o/Sarrapia.jpg?alt=media&token=b3ce45fc-88a7-4d93-b796-e46ea15c4b22",
         "desde": "6:00",

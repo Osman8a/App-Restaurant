@@ -48,28 +48,17 @@ export class SignupPage {
    * @memberof SignupPage
    */
   validarFomulario() {
-    var emailRegex = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
     const user = {
       email: this.user.email,
       secondemail: this.user.secondemail,
       password: this.user.password
     };
-
     if (
       user.email === user.secondemail &&
       user.email != "" &&
       user.secondemail != ""
     ) {
       return 0;
-    }
-    if (user.email == "" || user.password == "" || user.secondemail == "") {
-      return 1;
-    }
-    if (user.email != user.secondemail) {
-      return 2;
-    }
-    if (emailRegex.test(user.email)) {
-      return 3;
     }
   }
 
@@ -82,28 +71,42 @@ export class SignupPage {
    * @memberof LoginPage
    */
   signup() {
-    switch (this.validarFomulario()) {
-      case 0:
-        this.auth
-          .registerUser(this.user.email, this.user.password)
-          .then(() => {
-            swal(
-              "Felicidades",
-              "Varifica tu correo para formar parte de la familia Menú para hoy!",
-              "success"
-            );
-            this.navCtrl.push('LoginPage')
-          })
-          .catch((err) => {
-            var errorCode = err.code;
-            //Cuando es un correo que ya se encuentra registrado en Base de Datos
-            if (errorCode === 'auth/email-already-in-use') {
+    if (this.validarFomulario() === 0) {
+      this.auth
+        .registerUser(this.user.email, this.user.password)
+        .then(() => {
+          swal(
+            "Felicidades",
+            "Varifica tu correo para formar parte de la familia Menú para hoy!",
+            "success"
+          );
+          this.navCtrl.push('LoginPage')
+        })
+        .catch((err) => {
+          var errorCode = err.code;
+          switch (errorCode) {
+            case 'auth/email-already-in-use':  //Cuando es un correo que ya se encuentra registrado en Base de Datos
               swal(
                 "Hey!",
-                "Recuerda que ya te encuentras registraado en nuestra App!",
+                "Recuerda que ya te encuentras registrado en nuestra App!",
                 "error"
               );
-            } else {
+              break;
+            case 'auth/weak-password': //Cuando es unaa contraseña debil
+              swal(
+                "Hey",
+                "Tu contraseña es muy debil, ingresa una contraseña más segura",
+                "error"
+              );
+              break;
+            case 'auth/invalid-email': // cuando es un correo no valido 
+              swal(
+                "Hey",
+                "Tu correo no es un correo válido",
+                "error"
+              );
+              break;
+            default:
               //Acá atrapa algun error que no esté previsto
               let alert = this.alertCtrl.create({
                 title: "Error aquii",
@@ -111,26 +114,15 @@ export class SignupPage {
                 buttons: ["Aceptar"]
               });
               alert.present(); // si se produce un error lo muestra
-            }
-          });
-        break;
-      case 1: //Cuando el formulario está vacio
-        swal(
-          "Existen elementos en el formulario que están vacios",
-          "Intentalo Nuevamente!",
-          "error"
-        );
-        break;
-      case 2: // cuando los correos no coinciden
-        swal("Ambos correos no coincide", "Intentalo Nuevamente!", "error");
-        break;
-      case 3: //Cuaando es un correo no valido
-        swal(
-          "Acabas de ingresar un correo no valido",
-          "Intentalo Nuevamente!",
-          "error"
-        );
-        break;
+              break;
+          }
+        });
+    } else {
+      swal(
+        "Hey!",
+        "Verifica tu correo y además verifica que no se encuentren campos vacios!",
+        "error"
+      );
     }
   }
   /**
