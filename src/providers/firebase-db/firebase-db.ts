@@ -56,4 +56,18 @@ export class FirebaseDbProvider {
     console.log(restaurant.id);
     this.afDB.database.ref('sitios/' + restaurant.id).update({ favoritos: 99 })
   }
+
+
+  agregarValoracion(restaurant) {
+    return this.afDB.database.ref('valoracion/' + this.auth.getUser() + '/' + restaurant.id)
+      .set(restaurant)
+      .then((res) => console.log(`se guardo`))
+      .catch(err => console.log(`hay un error acá ${err}`))
+  }
+
+  actualizarValoracion(restaurant) {
+    let valorActual = restaurant.valoracion + 1;
+    return this.afDB.database.ref('sitios/' + restaurant.id).update({ valoracion: valorActual })
+      .then(() => Promise.resolve(valorActual))
+  }
 }

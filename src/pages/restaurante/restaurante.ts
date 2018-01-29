@@ -18,6 +18,7 @@ export class RestaurantePage {
   restaurant: any;
   address: string;
   esFavorito = "black";
+  valoracion = this.navParams.get('valoracion');
 
   constructor(
     public navCtrl: NavController,
@@ -111,25 +112,28 @@ export class RestaurantePage {
    * @memberof RestaurantePage
    */
   addValoracion() {
-    let restaurante = JSON.stringify(this.restaurant);
-    console.log("estas acáaaaaaaa" + restaurante.id);
-    // this.dbFirebase.agregarValoracion(restaurante)
-    //   .then((res) => {
-    //     //si se guarda perfectamente entonces mostramos el mensaje
-    //     swal({
-    //       position: 'top-end',
-    //       type: 'success',
-    //       title: 'Restaurant agregado a favorito',
-    //       showConfirmButton: false,
-    //       timer: 2500
-    //     })
-    //     //ademas modificamos los favoritos que tiene ese restaurante
-    //     this.dbFirebase.actualizarValoracion(restaurante)
-    //     // y transformamos el color del corazon
-    //   })
-    //   .catch((err) => {
-    //     console.log(`no se guardo ${err}`);
-    //   })
+    let restaurante = {
+      id: this.navParams.get('id'),
+      nombre: this.navParams.get('nombre'),
+      valoracion: this.navParams.get('valoracion'),
+    }
+    this.dbFirebase.agregarValoracion(restaurante) // agregamos la vaaloración para que un usuario no pueda valorar varias veces un mismo menú
+      .then((res) => {
+        //si se guarda perfectamente entonces mostramos el mensaje
+        swal({
+          position: 'top-end',
+          type: 'success',
+          title: '¡Gracias!, aumentaste la valoración de nuestro restaurante',
+          showConfirmButton: false,
+          timer: 2500
+        })
+        //ademas modificamos las valoraciones de ese restaurante
+        this.dbFirebase.actualizarValoracion(restaurante)
+          .then((res) => this.valoracion = res)
+      })
+      .catch((err) => {
+        console.log(`no se guardo ${err}`);
+      })
   }
   /////////////////////////////////////////
 
