@@ -31,14 +31,14 @@
     <ion-grid>
       <ion-row class="card-icos">
         <ion-col>
-          <ion-icon (click)="addFavorito(restaurant)" color="energy" name="star"></ion-icon>
-          <ion-badge item-end>{{restaurant.favoritos}}</ion-badge>
+          <ion-icon (click)="addValoracion()" color="energy" name="star"></ion-icon>
+          <ion-badge item-end>{{restaurant.valoracion}}</ion-badge>
         </ion-col>
         <ion-col>
-          <ion-icon color="primary" ios="ios-chatboxes" md="md-chatboxes"></ion-icon>1
+          <ion-icon color="primary" ios="ios-chatboxes" md="md-chatboxes"></ion-icon>null
         </ion-col>
         <ion-col>
-          <ion-icon color="danger" ios="ios-heart" md="md-heart"></ion-icon>2
+          <ion-icon (click)="addFavorito()" color={{esFavorito}} ios="ios-heart" md="md-heart"></ion-icon>
         </ion-col>
       </ion-row>
     </ion-grid>

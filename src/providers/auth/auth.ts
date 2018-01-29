@@ -64,9 +64,7 @@ export class AuthProvider {
             console.log(`Error al enviar el correo ${err}`);
           });
       })
-      .catch(err => {
-        Promise.reject(err);
-      });
+      .catch(err => Promise.reject(err));
   }
 
   /**
