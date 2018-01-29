@@ -52,6 +52,13 @@ export class FirebaseDbProvider {
       .catch(err => console.log(`hay un error acá ${err}`))
   }
 
+  removerFavorito(restaurant) {
+    return this.afDB.database.ref('favoritos/' + this.auth.getUser() + '/' + restaurant.id)
+      .remove()
+      .then((res) => console.log(`se eliminó`))
+      .catch(err => console.log(`hay un error acá ${err}`))
+  }
+
   actualizarFavorito(restaurant) {
     console.log(restaurant.id);
     this.afDB.database.ref('sitios/' + restaurant.id).update({ favoritos: 99 })

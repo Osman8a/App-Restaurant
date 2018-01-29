@@ -85,28 +85,41 @@ export class RestaurantePage {
       lat: this.navParams.get('lat'),
       lng: this.navParams.get('lng'),
     }
-    this.dbFirebase.agregarFavorito(restaurante)
-      .then((res) => {
-        //si se guarda perfectamente entonces mostramos el mensaje
-        swal({
-          position: 'top-end',
-          type: 'success',
-          title: 'Restaurant agregado a favorito',
-          showConfirmButton: false,
-          timer: 2500
+    if (this.esFavorito == "black") {
+      this.dbFirebase.agregarFavorito(restaurante)
+        .then((res) => {
+          //si se guarda perfectamente entonces mostramos el mensaje
+          swal({
+            position: 'top-end',
+            type: 'success',
+            title: 'Restaurant agregado a favorito',
+            showConfirmButton: false,
+            timer: 2500
+          })
         })
-        //ademas modificamos los favoritos que tiene ese restaurante
-        this.dbFirebase.actualizarFavorito(restaurante)
-        // y transformamos el color del corazon
-      })
-      .catch((err) => {
-        console.log(`no se guardo ${err}`);
-      })
+        .catch((err) => {
+          console.log(`no se guardo ${err}`);
+        })
+    } else {
+      this.dbFirebase.removerFavorito(restaurante)
+        .then((res) => {
+          swal({
+            position: 'top-end',
+            type: 'success',
+            title: 'Restaurant Eliminado de Favorito',
+            showConfirmButton: false,
+            timer: 2500
+          })
+          this.esFavorito = "black"
+        })
+        .catch((err) => {
+          console.log(`no se guardo ${err}`);
+        })
+    }
   }
 
-  ///////////////////////////////////////////
+
   /**
-   * 
    * @function addFavorito Agrega un restaurante a favoritos
    * @param {any} restaurant 
    * @memberof RestaurantePage
@@ -135,7 +148,6 @@ export class RestaurantePage {
         console.log(`no se guardo ${err}`);
       })
   }
-  /////////////////////////////////////////
 
   /**
    * 
@@ -176,7 +188,6 @@ export class RestaurantePage {
         }
       })
     });
-
   }
 
   ionViewDidLoad() {
