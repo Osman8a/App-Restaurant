@@ -38,6 +38,10 @@ export class FirebaseDbProvider {
   }
 
 
+  // puedeComentar() {
+  //   this.afDB.list("comentarios/" + this.auth.getUser()).valueChanges()
+  // }
+
   /**
    * @function agregarFavorito agrega el restautante
    * favorito según el ID del usuario
@@ -76,5 +80,32 @@ export class FirebaseDbProvider {
     let valorActual = restaurant.valoracion + 1;
     return this.afDB.database.ref('sitios/' + restaurant.id).update({ valoracion: valorActual })
       .then(() => Promise.resolve(valorActual))
+  }
+
+  /**
+   * @function publicarComentario esta funcion se encarga de guardar
+   * el comentario que usuario quiere publicar de un menú. Cabe
+   * destacar que esta función guarda el mensaje en FireBase
+   * @param {any} comentario es el mensaje que se desea publicar
+   * @param {any} restaurant es el restaurant al cual se le agregó el comentario
+   * @memberof FirebaseDbProvider
+   */
+  pubicarComentario(comentario, restaurant) {
+    return this.afDB.database.ref('comentarios/' + restaurant.id + "/" + comentario.id)
+      .set(comentario)
+      .then((res) => {
+        this.afDB.database.ref('sitios/' + restaurant.id + '/pizarras' + '/comentarios' + "/" + comentario.fecha).set(comentario)
+      })
+      .catch(err => console.log(`hay un error acá ${err}`))
+  }
+
+  /**
+   * @function getComentarios obtiene el listado de 
+   * comentarios por restaurante
+   * @returns 
+   * @memberof FirebaseDbProvider
+   */
+  getComentarios(restaurant) {
+    return this.afDB.list("comentarios/" + restaurant.id).valueChanges();
   }
 }

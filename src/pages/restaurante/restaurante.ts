@@ -15,10 +15,12 @@ declare var google: any;
 export class RestaurantePage {
 
   coords: any = { lat: 0, lng: 0 };
-  restaurant: any;
+  restaurant: any = {};
   address: string;
   esFavorito = "black";
   valoracion = this.navParams.get('valoracion');
+  comentarios: any;
+  cantidadComentarios;
 
   constructor(
     public navCtrl: NavController,
@@ -40,6 +42,23 @@ export class RestaurantePage {
   openModal() {
     let modal = this.modalCtrl.create(ModalServiciosPage);
     modal.present();
+  }
+
+  /**
+   * @function mostarMensaje muestra algun mensaje al 
+   * usuario 
+   * @param {any} mensaje es a información que se desea
+   * mostrar
+   * @memberof RestaurantePage
+   */
+  mostrarMensaje(mensaje, tipo) {
+    swal({
+      position: 'top-end',
+      type: tipo,
+      title: mensaje,
+      showConfirmButton: false,
+      timer: 2500
+    })
   }
 
   /**
@@ -65,7 +84,6 @@ export class RestaurantePage {
       success => console.log('Launched navigator'),
       error => console.log('Error launching navigator', error)
       );
-
   }
 
   /**
@@ -89,13 +107,7 @@ export class RestaurantePage {
       this.dbFirebase.agregarFavorito(restaurante)
         .then((res) => {
           //si se guarda perfectamente entonces mostramos el mensaje
-          swal({
-            position: 'top-end',
-            type: 'success',
-            title: 'Restaurant agregado a favorito',
-            showConfirmButton: false,
-            timer: 2500
-          })
+          this.mostrarMensaje("Restaurante agregado a favorito", "success");
         })
         .catch((err) => {
           console.log(`no se guardo ${err}`);
@@ -103,13 +115,7 @@ export class RestaurantePage {
     } else {
       this.dbFirebase.removerFavorito(restaurante)
         .then((res) => {
-          swal({
-            position: 'top-end',
-            type: 'success',
-            title: 'Restaurant Eliminado de Favorito',
-            showConfirmButton: false,
-            timer: 2500
-          })
+          this.mostrarMensaje('Restaurant Eliminado de Favorito', "success");
           this.esFavorito = "black"
         })
         .catch((err) => {
@@ -182,16 +188,107 @@ export class RestaurantePage {
    */
   esRestaurantFavorito(restaurantID) {
     this.dbFirebase.getRestaurantFavoritos().subscribe(restaurantes => {
-      restaurantes.map((item) => {
-        if (item.id === restaurantID) {
+      for (let i = 0; i < restaurantes.length; i++) {
+        if (restaurantes[i]['id'] === restaurantID) {
           this.esFavorito = "danger";
         }
+      }
+    });
+  }
+
+  /**
+   * @function puedeComentar() verifica si un 
+   * usuario puede realizar 1 comentario, puesto que
+   * 1 usuario puede realizar 1 comentario por día.
+   * Para ello realiza una llamada al método puedeComenter()
+   * para que realice una consulte en FireBase medante el
+   * método getComentarios(this.restaurant) que recibe
+   * el restaurante al cual el usuario que realizar el 
+   * comentario. El método puedeComentar() puede 
+   * retornar falso o verdadero
+   * @memberof RestaurantePage
+   */
+  puedeComentar() {
+    this.dbFirebase.getComentarios(this.restaurant) //.subscribe((comentarios) => {
+    // comentarios.map(comentario =>{
+    //   for (let i = 0; i < comentario.length; i++) {
+    //     if (comentario[i]['id'] === ) {
+    //       this.esFavorito = "danger";
+    //     }
+    //   }
+    // })
+    //})
+    return true
+  }
+
+  /**
+   * @function ingresarComentario() Primeramente mendiante la 
+   * condición "if (this.puedeComentar())" se realiza una llamada
+   * a la funcion PuedeComentar() donde se verifica si el usuario realmente
+   * puede realizar un comentario ya que 1 persona puede realizar
+   * 1 comentario por día y por restaurante. En caso de que la respuesta
+   * sea positiva entonces muestra un mensaje vusando swal.setDefaults({}) 
+   * donde solicita al usuario que ingrese el comentario y subsiguientemente
+   * el mensaje es guardado en FireBase.Por ultimo y no menos importante, 
+   * en caso de que el usuario no pueda comentar entonces se mostrará
+   * un meensaje notificandolo
+   * @memberof RestaurantePage
+   */
+  ingresarComentario() {
+    if (this.puedeComentar()) {
+      swal.setDefaults({
+        input: 'text',
+        confirmButtonText: 'Siguiente &rarr;',
+        showCancelButton: true,
+        progressSteps: ['1']
       })
+      var steps = [
+        {
+          title: '¡Comenta!',
+          text: '¿Que tal te pareció nuestro Menú?'
+        }
+      ]
+      swal.queue(steps).then((result) => {
+        swal.resetDefaults()
+        if (result.value != "" && result.value != null) {
+          swal({
+            title: '¡Listo!',
+            html:
+              'Tu comentario es: <pre>' +
+              JSON.stringify(result.value) +
+              '</pre>',
+            confirmButtonText: 'Publicar'
+          })
+          let comentario = {
+            id: Date.now(),
+            descripcion: result.value[0],
+            fecha: Date.now(),
+            restaurante: this.restaurant.id
+          }
+          this.dbFirebase.pubicarComentario(comentario, this.restaurant);
+        }
+      })
+    } else {
+      this.mostrarMensaje("Lamentablemente solo puedes comentar 1 vez al día por restaurante", "error");
+    }
+  }
+  /**
+   * @function getComentarios llama a la funcion getComentarios(restaurant)
+   * en fireBase para recibir  el listado de comentarios 
+   * @param {any} restaurant es el restaurante de quien se quiere conocer
+   * sus comentarios
+   * @memberof RestaurantePage
+   */
+  getComentarios(restaurant) {
+    this.dbFirebase.getComentarios(restaurant).subscribe(comentarios => {
+      this.comentarios = comentarios;
+      this.cantidadComentarios = comentarios.length; //agrega la cantidad de comentarios
     });
   }
 
   ionViewDidLoad() {
-    this.esRestaurantFavorito(this.restaurant.id);
+    this.getComentarios(this.restaurant) //función que carga los comentarios cuando se agregan
+    this.esRestaurantFavorito(this.restaurant.id); //función que vambia a favorito cuando se agrega
     this.coords.lat = this.navParams.get("lat"); //obtiene la lat pasada por parametro
     this.coords.lng = this.navParams.get("lng"); //obtiene la lng pasada por parametro
     this.getAddress(this.coords).then(

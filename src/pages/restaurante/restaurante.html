@@ -9,7 +9,6 @@
   </ion-navbar>
 </ion-header>
 
-
 <ion-content class="card-background-page">
   <ion-card>
     <!-- Fab para visualizar el boton que navegar -->
@@ -30,13 +29,16 @@
     <!-- Favoritos(estrella), comentarios(burbuja) y Me gusta(corazon),  -->
     <ion-grid>
       <ion-row class="card-icos">
+        <!-- Signo estrella que refleja los comentarios -->
         <ion-col>
           <ion-icon (click)="addValoracion()" color="energy" name="star"></ion-icon>
           <ion-badge item-end>{{valoracion}}</ion-badge>
         </ion-col>
+        <!-- Signo globo que muestra la cantidad de comentarios -->
         <ion-col>
-          <ion-icon color="primary" ios="ios-chatboxes" md="md-chatboxes"></ion-icon>null
+          <ion-icon color="primary" ios="ios-chatboxes" md="md-chatboxes"></ion-icon>{{cantidadComentarios}}
         </ion-col>
+        <!-- Signo favorito (corazón) -->
         <ion-col>
           <ion-icon (click)="addFavorito()" color={{esFavorito}} ios="ios-heart" md="md-heart"></ion-icon>
         </ion-col>
@@ -75,22 +77,24 @@
 
     </ion-card-content>
   </ion-card>
-  <!-- Chat -->
+  <!-- Listado de comentarios -->
   <ion-list>
     <ion-item>
-      <ion-avatar item-start>
-        <img src="assets/imgs/osman1.png">
-      </ion-avatar>
-      <h2>Osman</h2>
-      <p>Mala atención, mala comida, malos sientos...</p>
+      ¿Quieres Comentar?
+      <button ion-button outline item-end icon-left (click)="ingresarComentario()">
+        <ion-icon name="add"></ion-icon>
+        <ion-icon name="chatbubbles"></ion-icon>
+      </button>
     </ion-item>
-
-    <ion-item>
+    <ion-item *ngFor="let comentarios of comentarios">
+      <!-- Avatar del comntario -->
       <ion-avatar item-start>
-        <img src="assets/imgs/osman1.png">
+        <img src="">
       </ion-avatar>
-      <h2>Osman</h2>
-      <p>Excelente Restaurante</p>
+      <!-- Nombre de la persona que realizó el comentario-->
+      <h2></h2>
+      <!-- Descripcion del comentario-->
+      <p>{{comentarios.descripcion}}</p>
     </ion-item>
   </ion-list>
 

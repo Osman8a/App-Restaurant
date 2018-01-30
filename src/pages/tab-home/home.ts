@@ -73,11 +73,6 @@ export class HomePage {
       });
   }
 
-  ionViewDidLoad() {
-
-  }
-
-
   ionViewDidEnter() {
     this.dbFirebase.getSitios().subscribe(sitios => {
       this.sitios = sitios;
@@ -94,7 +89,7 @@ export class HomePage {
     this.auth.logout();
   }
 
-  verInfoRestaurante(restaurant, i) {
+  verInfoRestaurante(restaurant) {
     let modalSitio = this.modalCtrl.create('RestaurantePage', restaurant);
     modalSitio.present();
   }
