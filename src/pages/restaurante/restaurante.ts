@@ -308,6 +308,7 @@ export class RestaurantePage {
   }
 
   ionViewDidLoad() {
+
     this.getComentarios(this.restaurant) //función que carga los comentarios cuando se agregan
     this.esRestaurantFavorito(this.restaurant.id); //función que vambia a favorito cuando se agrega
     this.coords.lat = this.navParams.get("lat"); //obtiene la lat pasada por parametro
