@@ -197,6 +197,19 @@ export class RestaurantePage {
   }
 
   /**
+   * @function fechaActual retorna la fecha actual
+   * @returns fecha 
+   * @memberof RestaurantePage
+   */
+  fechaActual() {
+    let dt = new Date(); //fecha de hoy
+    let mes = dt.getMonth() + 1; //mes
+    let dia = dt.getDate(); //dia
+    let ano = dt.getFullYear(); //año
+    let fecha = dia + '-' + mes + '-' + ano;
+    return fecha;
+  }
+  /**
    * @function puedeComentar() verifica si un 
    * usuario puede realizar 1 comentario, puesto que
    * 1 usuario puede realizar 1 comentario por día.
@@ -209,16 +222,21 @@ export class RestaurantePage {
    * @memberof RestaurantePage
    */
   puedeComentar() {
-    this.dbFirebase.getComentarios(this.restaurant) //.subscribe((comentarios) => {
-    // comentarios.map(comentario =>{
-    //   for (let i = 0; i < comentario.length; i++) {
-    //     if (comentario[i]['id'] === ) {
-    //       this.esFavorito = "danger";
-    //     }
-    //   }
-    // })
-    //})
-    return true
+    let valor;
+    console.log("aquiii" + this.comentarios.length);
+    if (this.comentarios.length == 0) {
+      valor = true
+    } else {
+      for (let i = 0; i < this.comentarios.length; i++) {
+        if ((this.comentarios[i]['fecha'] === this.fechaActual()) && (this.comentarios[i]['usuario'] === this.dbFirebase.auth.getUser())) {
+          valor = false;
+          break;
+        } else {
+          valor = true;
+        }
+      }
+    }
+    if (valor) { return true } else { return false }
   }
 
   /**
@@ -235,6 +253,7 @@ export class RestaurantePage {
    * @memberof RestaurantePage
    */
   ingresarComentario() {
+    console.log(`acá está llegando ${this.puedeComentar()}`);
     if (this.puedeComentar()) {
       swal.setDefaults({
         input: 'text',
@@ -259,11 +278,13 @@ export class RestaurantePage {
               '</pre>',
             confirmButtonText: 'Publicar'
           })
+
           let comentario = {
             id: Date.now(),
             descripcion: result.value[0],
-            fecha: Date.now(),
-            restaurante: this.restaurant.id
+            fecha: this.fechaActual(),
+            restaurante: this.restaurant.id,
+            usuario: this.dbFirebase.auth.getUser()
           }
           this.dbFirebase.pubicarComentario(comentario, this.restaurant);
         }
@@ -296,7 +317,6 @@ export class RestaurantePage {
         this.address = results[0]["formatted_address"];
       },
       errStatus => {
-        //manejar el error
         console.log(`hubo un error ${errStatus}`);
       }
     );
