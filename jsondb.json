@@ -94,6 +94,25 @@
         "max": "7000",
         "valoracionmenu": 10
       }
+    },
+    "1717185439981": {
+      "id": "1717185439981",
+      "nombre": "Restaurant Cerca de Omar",
+      "lema": "Lema del Restaurant de Julio",
+      "descripcion": "restaurante gourmet",
+      "image": "https://lh5.googleusercontent.com/p/AF1QipMbmjWk9HXtcknZdwTPKDNkMonrkjBEBCuoKLkW=w408-h544-k-no",
+      "lat": -33.391575,
+      "lng": -70.615406,
+      "favoritos": 26,
+      "valoracion": 0,
+      "pizarras": {
+        "foto": "https://firebasestorage.googleapis.com/v0/b/menu-para-hoy-1514454952723.appspot.com/o/cercaOmar.jpg?alt=media&token=e9957544-f403-496c-8e40-b8906744323e",
+        "desde": "6:00",
+        "hasta": "18:00",
+        "min": "1000",
+        "max": "7000",
+        "valoracionmenu": 10
+      }
     }
   }
 }

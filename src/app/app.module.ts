@@ -24,6 +24,7 @@ import { SignaturePadModule } from "angular2-signaturepad";
 import { FirebaseDbProvider } from '../providers/firebase-db/firebase-db';
 import { ModalServiciosPage } from "../pages/modal-servicios/modal-servicios";
 import { SocialSharing } from '@ionic-native/social-sharing';
+import { TimelineProvider } from '../providers/timeline/timeline';
 
 //import { SQLite } from "@ionic-native/sqlite";
 
@@ -58,7 +59,8 @@ export const firebaseConfig = {
     FirebaseDbProvider,
     Geolocation,
     LaunchNavigator,
-    SocialSharing
+    SocialSharing,
+    TimelineProvider
   ]
 })
 export class AppModule { }
