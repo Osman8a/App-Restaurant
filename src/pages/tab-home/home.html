@@ -34,7 +34,7 @@
           <ion-row no-padding>
             <ion-col text-center>
               <!-- <button ion-button clear small color="energy" icon-start class="estrella"> -->
-              <ion-icon color="energy" name='star'>{{sitios.favoritos}}</ion-icon>
+              <ion-icon color="energy" name='star'>{{sitios.pizarras.valoracionmenu}}</ion-icon>
               <!-- </button> -->
             </ion-col>
             <!-- Navegación -->
@@ -89,6 +89,24 @@
             </ion-col>
             <ion-col text-center>
               <ion-icon name="book" color="danger"></ion-icon>Min: {{sitios.pizarras.min}} $
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+        <!-- boton ¿Estas Aqui? -->
+        <ion-grid>
+          <ion-row>
+            <ion-col text-center>
+              <button ion-button color="whatsapp" (click)="valorarMenu(sitios)" full small>
+                <ion-col>
+                  <ion-icon name="walk" color="dark"></ion-icon>
+                </ion-col>
+                <ion-col>
+                  ¿Estas Aqui?
+                </ion-col>
+                <ion-col>
+                  <ion-icon name="restaurant" color="dark"></ion-icon>
+                </ion-col>
+              </button>
             </ion-col>
           </ion-row>
         </ion-grid>

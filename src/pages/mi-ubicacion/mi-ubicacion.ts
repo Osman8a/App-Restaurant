@@ -78,5 +78,4 @@ export class MiUbicacionPage {
         console.log(err);
       });
   }
-
 }

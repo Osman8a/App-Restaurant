@@ -87,6 +87,9 @@
       "cordova-plugin-buildinfo": {},
       "cordova-plugin-browsertab": {},
       "cordova-plugin-inappbrowser": {}
-    }
+    },
+    "platforms": [
+      "android"
+    ]
   }
 }
