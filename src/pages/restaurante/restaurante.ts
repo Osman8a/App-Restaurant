@@ -18,7 +18,6 @@ export class RestaurantePage {
   restaurant: any = {};
   address: string;
   esFavorito = "black";
-  valoracion = this.navParams.get('valoracion');
   comentarios: any;
   cantidadComentarios;
 
@@ -122,37 +121,6 @@ export class RestaurantePage {
           console.log(`no se guardo ${err}`);
         })
     }
-  }
-
-
-  /**
-   * @function addFavorito Agrega un restaurante a favoritos
-   * @param {any} restaurant 
-   * @memberof RestaurantePage
-   */
-  addValoracion() {
-    let restaurante = {
-      id: this.navParams.get('id'),
-      nombre: this.navParams.get('nombre'),
-      valoracion: this.navParams.get('valoracion'),
-    }
-    this.dbFirebase.agregarValoracion(restaurante) // agregamos la vaaloración para que un usuario no pueda valorar varias veces un mismo menú
-      .then((res) => {
-        //si se guarda perfectamente entonces mostramos el mensaje
-        swal({
-          position: 'top-end',
-          type: 'success',
-          title: '¡Gracias!, aumentaste la valoración de nuestro restaurante',
-          showConfirmButton: false,
-          timer: 2500
-        })
-        //ademas modificamos las valoraciones de ese restaurante
-        this.dbFirebase.actualizarValoracion(restaurante)
-          .then((res) => this.valoracion = res)
-      })
-      .catch((err) => {
-        console.log(`no se guardo ${err}`);
-      })
   }
 
   /**

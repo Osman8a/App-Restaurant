@@ -9,13 +9,14 @@
       "lat": 8.098585,
       "lng": -63.559743,
       "favoritos": 0,
-      "valoracion": 50,
+      "valoracion": 0,
       "pizarras": {
         "foto": "https://firebasestorage.googleapis.com/v0/b/menu-para-hoy-1514454952723.appspot.com/o/pizarra-rey-del-pollo.jpg?alt=media&token=0a3dec55-d7bd-409a-8f99-fd2e813a6c1a",
         "desde": "15:04",
         "hasta": "22:59",
         "min": "2000",
-        "max": "5500"
+        "max": "5500",
+        "valoracionmenu": 1
       }
     },
     "1517185433863": {
@@ -27,13 +28,14 @@
       "lat": 8.110124,
       "lng": -63.540945,
       "favoritos": 6,
-      "valoracion": 70,
+      "valoracion": 0,
       "pizarras": {
         "foto": "https://firebasestorage.googleapis.com/v0/b/menu-para-hoy-1514454952723.appspot.com/o/Restaurante%20Dulzura.JPG?alt=media&token=10cb9c79-d891-4ee2-a4db-97a93f04ef08",
         "desde": "1:00",
         "hasta": "19:00",
         "min": "3000",
-        "max": "5000"
+        "max": "5000",
+        "valoracionmenu": 90
       }
     },
     "1517185439993": {
@@ -41,17 +43,18 @@
       "nombre": "Lugar de Omar",
       "lema": "Lema del Restaurant",
       "descripcion": "restaurante gourmet",
-      "image": "https://firebasestorage.googleapis.com/v0/b/menu-para-hoy-1514454952723.appspot.com/o/1.jpg?alt=media&token=48d8539a-9af2-4e15-9a5a-b1f22106b8a6",
+      "image": "https://lh5.googleusercontent.com/p/AF1QipMbmjWk9HXtcknZdwTPKDNkMonrkjBEBCuoKLkW=w408-h544-k-no",
       "lat": -33.518722,
       "lng": -70.525111,
       "favoritos": 26,
-      "valoracion": 90,
+      "valoracion": 0,
       "pizarras": {
         "foto": "https://firebasestorage.googleapis.com/v0/b/menu-para-hoy-1514454952723.appspot.com/o/OsmanRest.JPG?alt=media&token=1acaacf1-4c59-4b49-8a0d-04f40230b0c8",
         "desde": "6:00",
         "hasta": "18:00",
         "min": "1000",
-        "max": "7000"
+        "max": "7000",
+        "valoracionmenu": 40
       }
     },
     "1717185439993": {
@@ -59,17 +62,37 @@
       "nombre": "La casa de Osman",
       "lema": "Lema del Restaurant",
       "descripcion": "restaurante gourmet",
-      "image": "https://firebasestorage.googleapis.com/v0/b/menu-para-hoy-1514454952723.appspot.com/o/2.jpg?alt=media&token=0ae0eba6-abcc-4e82-9c6f-26fed70820eb",
+      "image": "https://lh5.googleusercontent.com/p/AF1QipMbmjWk9HXtcknZdwTPKDNkMonrkjBEBCuoKLkW=w408-h544-k-no",
       "lat": 8.100685,
       "lng": -63.588621,
       "favoritos": 26,
-      "valoracion": 90,
+      "valoracion": 0,
       "pizarras": {
         "foto": "https://firebasestorage.googleapis.com/v0/b/menu-para-hoy-1514454952723.appspot.com/o/omarRest.jpg?alt=media&token=c88cfc0f-f369-4a6a-a39b-90132c13b04c",
         "desde": "6:00",
         "hasta": "18:00",
         "min": "1000",
-        "max": "7000"
+        "max": "7000",
+        "valoracionmenu": 15
+      }
+    },
+    "1717185439983": {
+      "id": "1717185439983",
+      "nombre": "Julio Restaurant",
+      "lema": "Lema del Restaurant de Julio",
+      "descripcion": "restaurante gourmet",
+      "image": "https://lh5.googleusercontent.com/p/AF1QipMbmjWk9HXtcknZdwTPKDNkMonrkjBEBCuoKLkW=w408-h544-k-no",
+      "lat": -33.448822,
+      "lng": -70.565257,
+      "favoritos": 26,
+      "valoracion": 0,
+      "pizarras": {
+        "foto": "https://firebasestorage.googleapis.com/v0/b/menu-para-hoy-1514454952723.appspot.com/o/JulioRest.jpg?alt=media&token=d8a14a9f-625b-4724-9d5a-da190c2fe44f",
+        "desde": "6:00",
+        "hasta": "18:00",
+        "min": "1000",
+        "max": "7000",
+        "valoracionmenu": 10
       }
     }
   }

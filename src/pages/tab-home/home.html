@@ -34,7 +34,7 @@
           <ion-row no-padding>
             <ion-col text-center>
               <!-- <button ion-button clear small color="energy" icon-start class="estrella"> -->
-              <ion-icon color="energy" name='star'>{{sitios.favoritos}}</ion-icon>
+              <ion-icon color="energy" name='star'>{{sitios.pizarras.valoracionmenu}}</ion-icon>
               <!-- </button> -->
             </ion-col>
             <!-- Navegación -->
@@ -96,7 +96,7 @@
         <ion-grid>
           <ion-row>
             <ion-col text-center>
-              <button ion-button color="whatsapp" (click)="valorarMenu()" full small>
+              <button ion-button color="whatsapp" (click)="valorarMenu(sitios)" full small>
                 <ion-col>
                   <ion-icon name="walk" color="dark"></ion-icon>
                 </ion-col>
