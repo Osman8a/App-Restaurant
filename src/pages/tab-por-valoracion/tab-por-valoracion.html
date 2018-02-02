@@ -21,7 +21,7 @@
       </ion-range>
     </ion-item>
     <!-- FIN Rango de la valoración -->
-    <!-- Menús -->
+    <!-- Acá empieza el timeline (Menús) -->
     <ion-item *ngFor="let sitios of sitios">
       <ion-card>
         <ion-item (click)="verInfoRestaurante(sitios)" type="submit">
@@ -44,15 +44,39 @@
           <ion-row no-padding>
             <ion-col text-center>
               <!-- <button ion-button clear small color="energy" icon-start class="estrella"> -->
-              <ion-icon color="energy" name='star'>{{sitios.favoritos}}</ion-icon>
+              <ion-icon color="energy" name='star'>{{sitios.pizarras.valoracionmenu}}</ion-icon>
               <!-- </button> -->
             </ion-col>
+            <!-- Navegación -->
             <ion-col text-center>
               <ion-icon name="navigate" color="primary"> 4.675</ion-icon>
             </ion-col>
+            <!-- Compartir -->
             <ion-col text-center>
-              <ion-icon name="share" color="facebook"></ion-icon>
+              <ion-fab class="button-compartir" center button>
+                <button ion-fab mini color="primary">
+                  <ion-icon name="share"></ion-icon>
+                </button>
+                <ion-fab-list side="top">
+                  <button (click)="facebookShare(sitios.nombre,sitios.pizarras.foto)" color="facebook" ion-fab>
+                    <ion-icon name="logo-facebook"></ion-icon>
+                  </button>
+                  <button (click)="twitterShare(sitios.nombre,sitios.pizarras.foto)" ion-fab>
+                    <ion-icon color="twitter" name="logo-twitter"></ion-icon>
+                  </button>
+                  <button (click)="emailShare(sitios.nombre,sitios.pizarras.foto)" ion-fab color="danger">
+                    <ion-icon name="mail"></ion-icon>
+                  </button>
+                  <button (click)="instagramShare(sitios.nombre,sitios.pizarras.foto)" ion-fab color="instagram">
+                    <ion-icon name="logo-instagram"></ion-icon>
+                  </button>
+                  <button (click)="whatsapShare(sitios.nombre,sitios.pizarras.foto)" color="whatsapp" ion-fab>
+                    <ion-icon name="logo-whatsapp"></ion-icon>
+                  </button>
+                </ion-fab-list>
+              </ion-fab>
             </ion-col>
+            <!-- Fin compartir -->
           </ion-row>
         </ion-grid>
         <!-- donde se encuentra el horario desde y haste -->
@@ -78,8 +102,27 @@
             </ion-col>
           </ion-row>
         </ion-grid>
+        <!-- boton ¿Estas Aqui? -->
+        <ion-grid>
+          <ion-row>
+            <ion-col text-center>
+              <button ion-button color="whatsapp" (click)="valorarMenu(sitios)" full small>
+                <ion-col>
+                  <ion-icon name="walk" color="dark"></ion-icon>
+                </ion-col>
+                <ion-col>
+                  ¿Estas Aqui?
+                </ion-col>
+                <ion-col>
+                  <ion-icon name="restaurant" color="dark"></ion-icon>
+                </ion-col>
+              </button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
       </ion-card>
     </ion-item>
+
   </ion-list>
   <!-- FIN Menús -->
 </ion-content>
