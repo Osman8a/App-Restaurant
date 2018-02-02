@@ -9,7 +9,7 @@
       "lat": 8.098585,
       "lng": -63.559743,
       "favoritos": 0,
-      "valoracion": 0,
+      "valoracion": 3,
       "pizarras": {
         "foto": "https://firebasestorage.googleapis.com/v0/b/menu-para-hoy-1514454952723.appspot.com/o/pizarra-rey-del-pollo.jpg?alt=media&token=0a3dec55-d7bd-409a-8f99-fd2e813a6c1a",
         "desde": "15:04",
@@ -28,7 +28,7 @@
       "lat": 8.110124,
       "lng": -63.540945,
       "favoritos": 6,
-      "valoracion": 0,
+      "valoracion": 3,
       "pizarras": {
         "foto": "https://firebasestorage.googleapis.com/v0/b/menu-para-hoy-1514454952723.appspot.com/o/Restaurante%20Dulzura.JPG?alt=media&token=10cb9c79-d891-4ee2-a4db-97a93f04ef08",
         "desde": "1:00",
@@ -47,7 +47,7 @@
       "lat": -33.518722,
       "lng": -70.525111,
       "favoritos": 26,
-      "valoracion": 0,
+      "valoracion": 2,
       "pizarras": {
         "foto": "https://firebasestorage.googleapis.com/v0/b/menu-para-hoy-1514454952723.appspot.com/o/OsmanRest.JPG?alt=media&token=1acaacf1-4c59-4b49-8a0d-04f40230b0c8",
         "desde": "6:00",
@@ -66,7 +66,7 @@
       "lat": 8.100685,
       "lng": -63.588621,
       "favoritos": 26,
-      "valoracion": 0,
+      "valoracion": 1,
       "pizarras": {
         "foto": "https://firebasestorage.googleapis.com/v0/b/menu-para-hoy-1514454952723.appspot.com/o/omarRest.jpg?alt=media&token=c88cfc0f-f369-4a6a-a39b-90132c13b04c",
         "desde": "6:00",
@@ -85,7 +85,7 @@
       "lat": -33.448822,
       "lng": -70.565257,
       "favoritos": 26,
-      "valoracion": 0,
+      "valoracion": 5,
       "pizarras": {
         "foto": "https://firebasestorage.googleapis.com/v0/b/menu-para-hoy-1514454952723.appspot.com/o/JulioRest.jpg?alt=media&token=d8a14a9f-625b-4724-9d5a-da190c2fe44f",
         "desde": "6:00",
@@ -104,7 +104,7 @@
       "lat": -33.391575,
       "lng": -70.615406,
       "favoritos": 26,
-      "valoracion": 0,
+      "valoracion": 5,
       "pizarras": {
         "foto": "https://firebasestorage.googleapis.com/v0/b/menu-para-hoy-1514454952723.appspot.com/o/cercaOmar.jpg?alt=media&token=e9957544-f403-496c-8e40-b8906744323e",
         "desde": "6:00",

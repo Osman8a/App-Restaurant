@@ -28,7 +28,8 @@ export class FirebaseDbProvider {
       return this.afDB.list("sitios/").valueChanges();
     }
     if (opcion === 'valoracion') {
-      return this.afDB.list("sitios/", ref => ref.orderByChild('pizarras' + '/valoracionmenu').equalTo(filtro)).valueChanges();
+      // return this.afDB.list("sitios/", ref => ref.orderByChild('pizarras' + '/valoracionmenu').equalTo(filtro)).valueChanges(); //por valoración de menús de restaurates
+      return this.afDB.list("sitios/", ref => ref.orderByChild('valoracion').equalTo(filtro)).valueChanges(); //por valoración del restaurante
     }
   }
   /**
