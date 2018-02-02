@@ -15,7 +15,7 @@
   <ion-list>
     <!-- Rango de la valoración -->
     <ion-item>
-      <ion-range min="1" max="5" step="1" snaps="true" [(ngModel)]="warmth" color="energy">
+      <ion-range min="1" max="5" step="1" snaps="true" [(ngModel)]="valoracion" (ionChange)="setValoracion(valoracion)" color="energy">
         <ion-icon range-left small color="energy" name="star"></ion-icon>
         <ion-icon range-right color="energy" name="star"></ion-icon>
       </ion-range>

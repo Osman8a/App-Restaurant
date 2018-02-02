@@ -35,7 +35,7 @@
         "hasta": "19:00",
         "min": "3000",
         "max": "5000",
-        "valoracionmenu": 90
+        "valoracionmenu": 5
       }
     },
     "1517185439993": {
@@ -54,7 +54,7 @@
         "hasta": "18:00",
         "min": "1000",
         "max": "7000",
-        "valoracionmenu": 40
+        "valoracionmenu": 4
       }
     },
     "1717185439993": {
@@ -73,7 +73,7 @@
         "hasta": "18:00",
         "min": "1000",
         "max": "7000",
-        "valoracionmenu": 15
+        "valoracionmenu": 3
       }
     },
     "1717185439983": {
@@ -92,7 +92,7 @@
         "hasta": "18:00",
         "min": "1000",
         "max": "7000",
-        "valoracionmenu": 10
+        "valoracionmenu": 2
       }
     },
     "1717185439981": {
@@ -111,7 +111,7 @@
         "hasta": "18:00",
         "min": "1000",
         "max": "7000",
-        "valoracionmenu": 10
+        "valoracionmenu": 1
       }
     }
   }

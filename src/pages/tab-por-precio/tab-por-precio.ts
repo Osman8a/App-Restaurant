@@ -74,8 +74,8 @@ export class TabPorPrecioPage {
    * primera vez la aplicación
    * @memberof HomePage
    */
-  ionViewDidEnter() {
-    this.dbFirebase.getSitios().subscribe(sitios => {
+  ionViewDidEnter() { //1 90 40 15 10 10
+    this.dbFirebase.getSitios('precio', 90).subscribe(sitios => {
       this.sitios = sitios;
     });
   }

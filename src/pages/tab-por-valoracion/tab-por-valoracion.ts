@@ -17,13 +17,16 @@ import { TimelineProvider } from '../../providers/timeline/timeline';
   providers: [TimelineProvider]
 })
 export class TabPorValoracionPage {
-  warmth: number = 1300;
+  valoracion: number = 0;
+  //valoracion2: any;
   sitios: any;
 
   constructor(
     public timeline: TimelineProvider,
     public dbFirebase: FirebaseDbProvider,
-  ) { }
+  ) {
+    // this.valoracion2 = this.valoracion;
+  }
 
   ////////////////////////////////////////////////////////////////////////////////////////
   ////////////////--------------   MENÚ / TIMELINE     ----------/////////////////////////
@@ -71,6 +74,21 @@ export class TabPorValoracionPage {
     this.timeline.instagramShare(nombre, foto);
   }
 
+  // getValoracion() {
+  //   this.dbFirebase.getSitios('valoracion', this.valoracion).subscribe(sitios => {
+  //     this.sitios = sitios;
+  //   });
+  //   //return this.valoracion;
+  // }
+
+  setValoracion(valoracion) {
+    this.valoracion = valoracion;
+    console.log(this.valoracion);
+    this.dbFirebase.getSitios('valoracion', this.valoracion).subscribe(sitios => {
+      this.sitios = sitios;
+    });
+  }
+
   ////////////////////////////////////////////////////////////////////////////////////////
   ////////////////-------------- CARGA DE COMPONENTES ----------/////////////////////////
   ////////////////////////////////////////////////////////////////////////////////////////
@@ -80,12 +98,11 @@ export class TabPorValoracionPage {
    * @memberof HomePage
    */
   ionViewDidEnter() {
-    this.dbFirebase.getSitios().subscribe(sitios => {
-      this.sitios = sitios;
-    });
+    //this.getValoracion();
   }
 
   ionViewDidLoad() {
     this.timeline.obtenerPosicion();
+
   }
 }

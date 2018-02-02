@@ -76,7 +76,7 @@ export class HomePage {
    * @memberof HomePage
    */
   ionViewDidEnter() {
-    this.dbFirebase.getSitios().subscribe(sitios => {
+    this.dbFirebase.getSitios('home', null).subscribe(sitios => {
       this.sitios = sitios;
     });
   }

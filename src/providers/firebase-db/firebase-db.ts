@@ -23,10 +23,14 @@ export class FirebaseDbProvider {
    * @returns 
    * @memberof FirebaseDbProvider
    */
-  getSitios() {
-    return this.afDB.list("sitios/").valueChanges();
+  getSitios(opcion, filtro) {
+    if (opcion === 'home') {
+      return this.afDB.list("sitios/").valueChanges();
+    }
+    if (opcion === 'valoracion') {
+      return this.afDB.list("sitios/", ref => ref.orderByChild('pizarras' + '/valoracionmenu').equalTo(filtro)).valueChanges();
+    }
   }
-
   /**
    * @function getRestaurantFavoritos obtine el 
    * listado de restaaurantes favoritos
