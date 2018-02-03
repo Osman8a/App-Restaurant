@@ -14,8 +14,8 @@
         "foto": "https://firebasestorage.googleapis.com/v0/b/menu-para-hoy-1514454952723.appspot.com/o/pizarra-rey-del-pollo.jpg?alt=media&token=0a3dec55-d7bd-409a-8f99-fd2e813a6c1a",
         "desde": "15:04",
         "hasta": "22:59",
-        "min": "2000",
-        "max": "5500",
+        "min": 2000,
+        "max": 5500,
         "valoracionmenu": 1
       }
     },
@@ -33,8 +33,8 @@
         "foto": "https://firebasestorage.googleapis.com/v0/b/menu-para-hoy-1514454952723.appspot.com/o/Restaurante%20Dulzura.JPG?alt=media&token=10cb9c79-d891-4ee2-a4db-97a93f04ef08",
         "desde": "1:00",
         "hasta": "19:00",
-        "min": "3000",
-        "max": "5000",
+        "min": 9000,
+        "max": 25000,
         "valoracionmenu": 5
       }
     },
@@ -52,8 +52,8 @@
         "foto": "https://firebasestorage.googleapis.com/v0/b/menu-para-hoy-1514454952723.appspot.com/o/OsmanRest.JPG?alt=media&token=1acaacf1-4c59-4b49-8a0d-04f40230b0c8",
         "desde": "6:00",
         "hasta": "18:00",
-        "min": "1000",
-        "max": "7000",
+        "min": 1000,
+        "max": 7000,
         "valoracionmenu": 4
       }
     },
@@ -71,8 +71,8 @@
         "foto": "https://firebasestorage.googleapis.com/v0/b/menu-para-hoy-1514454952723.appspot.com/o/omarRest.jpg?alt=media&token=c88cfc0f-f369-4a6a-a39b-90132c13b04c",
         "desde": "6:00",
         "hasta": "18:00",
-        "min": "1000",
-        "max": "7000",
+        "min": 30000,
+        "max": 50000,
         "valoracionmenu": 3
       }
     },
@@ -90,8 +90,8 @@
         "foto": "https://firebasestorage.googleapis.com/v0/b/menu-para-hoy-1514454952723.appspot.com/o/JulioRest.jpg?alt=media&token=d8a14a9f-625b-4724-9d5a-da190c2fe44f",
         "desde": "6:00",
         "hasta": "18:00",
-        "min": "1000",
-        "max": "7000",
+        "min": 10000,
+        "max": 20000,
         "valoracionmenu": 2
       }
     },
@@ -109,8 +109,8 @@
         "foto": "https://firebasestorage.googleapis.com/v0/b/menu-para-hoy-1514454952723.appspot.com/o/cercaOmar.jpg?alt=media&token=e9957544-f403-496c-8e40-b8906744323e",
         "desde": "6:00",
         "hasta": "18:00",
-        "min": "1000",
-        "max": "7000",
+        "min": 1000,
+        "max": 10000,
         "valoracionmenu": 1
       }
     }

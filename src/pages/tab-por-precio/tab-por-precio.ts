@@ -12,13 +12,17 @@ import { FirebaseDbProvider } from "../../providers/firebase-db/firebase-db";
 })
 export class TabPorPrecioPage {
 
-  structure: any = { lower: 2, upper: 37 };
+  contrast: number = 0;
+  //mayorCalculado = 0;
   sitios: any;
+
 
   constructor(
     public timeline: TimelineProvider,
     public dbFirebase: FirebaseDbProvider,
-  ) { }
+  ) {
+
+  }
 
   ////////////////////////////////////////////////////////////////////////////////////////
   ////////////////--------------   MENÚ / TIMELINE     ----------/////////////////////////
@@ -67,6 +71,21 @@ export class TabPorPrecioPage {
   }
 
   ////////////////////////////////////////////////////////////////////////////////////////
+  ////////////////-------------- FILTRADO POR PRECIO ----------/////////////////////////
+  ////////////////////////////////////////////////////////////////////////////////////////
+  setValoracion(filtro) {
+    //this.mayorCalculado = ((contrast * 30000) / 100)
+    // this.rangoPrecios.mayor = mayorCalculado;
+    // this.rangoPrecios.menor = structure.lower;
+
+    // console.log(`mayor: ${this.rangoPrecios.mayor}  y menor: ${this.rangoPrecios.menor}`);
+    this.dbFirebase.getSitios('precio', filtro).subscribe(sitios => {
+      this.sitios = sitios;
+      console.log(this.sitios);
+    });
+  }
+
+  ////////////////////////////////////////////////////////////////////////////////////////
   ////////////////-------------- CARGA DE COMPONENTES ----------/////////////////////////
   ////////////////////////////////////////////////////////////////////////////////////////
   /**
@@ -75,9 +94,9 @@ export class TabPorPrecioPage {
    * @memberof HomePage
    */
   ionViewDidEnter() { //1 90 40 15 10 10
-    this.dbFirebase.getSitios('precio', 90).subscribe(sitios => {
-      this.sitios = sitios;
-    });
+    //   this.dbFirebase.getSitios('precio', 90).subscribe(sitios => {
+    //     this.sitios = sitios;
+    //   });
   }
 
   ionViewDidLoad() {

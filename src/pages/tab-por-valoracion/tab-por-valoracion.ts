@@ -74,13 +74,9 @@ export class TabPorValoracionPage {
     this.timeline.instagramShare(nombre, foto);
   }
 
-  // getValoracion() {
-  //   this.dbFirebase.getSitios('valoracion', this.valoracion).subscribe(sitios => {
-  //     this.sitios = sitios;
-  //   });
-  //   //return this.valoracion;
-  // }
-
+  /////////////////////////////////////////////////////////////////////////////////////////
+  ////////////////-------------- FILTRADO POR VALORACIÓN -------//////////////////////////
+  ////////////////////////////////////////////////////////////////////////////////////////
   setValoracion(valoracion) {
     this.valoracion = valoracion;
     console.log(this.valoracion);

@@ -14,8 +14,13 @@
 <ion-content>
   <ion-list>
     <!-- Rango para el precio -->
+    <ion-row>
+      <ion-col text-center>
+        <ion-label>menores a: {{contrast}} $</ion-label>
+      </ion-col>
+    </ion-row>
     <ion-item>
-      <ion-range dualKnobs="true" pin="true" [(ngModel)]="structure" color="four">
+      <ion-range min="0" max="25000" pin="true" [(ngModel)]="contrast" (ionChange)="setValoracion(contrast)" color="four">
         <ion-icon range-left small name="cash" color="verde"></ion-icon>
         <ion-icon range-right name="cash" color="verde"></ion-icon>
       </ion-range>
