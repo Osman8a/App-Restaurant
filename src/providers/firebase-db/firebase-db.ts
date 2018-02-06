@@ -23,10 +23,19 @@ export class FirebaseDbProvider {
    * @returns 
    * @memberof FirebaseDbProvider
    */
-  getSitios() {
-    return this.afDB.list("sitios/").valueChanges();
+  getSitios(opcion, filtro) {
+    if (opcion === 'home') {
+      return this.afDB.list("sitios/").valueChanges();
+    }
+    if (opcion === 'valoracion') {
+      // return this.afDB.list("sitios/", ref => ref.orderByChild('pizarras' + '/valoracionmenu').equalTo(filtro)).valueChanges(); //por valoración de menús de restaurates
+      return this.afDB.list("sitios/", ref => ref.orderByChild('valoracion').equalTo(filtro)).valueChanges(); //por valoración del restaurante
+    }
+    if (opcion === 'precio') {
+      // return this.afDB.list("sitios/", ref => ref.orderByChild('valoracion').equalTo(filtro)).valueChanges(); //por precio del menú del restaurante
+      return this.afDB.list("sitios/", ref => ref.orderByChild('pizarras' + '/max').endAt(filtro)).valueChanges();  //orderByChild('pizarras' + '/max').endAt(filtro)).valueChanges(); //por valoración de menús de restaurates
+    }
   }
-
   /**
    * @function getRestaurantFavoritos obtine el 
    * listado de restaaurantes favoritos

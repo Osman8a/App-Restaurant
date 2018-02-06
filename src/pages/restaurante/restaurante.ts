@@ -21,6 +21,7 @@ export class RestaurantePage {
   comentarios: any;
   cantidadComentarios;
 
+
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
