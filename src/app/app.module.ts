@@ -8,6 +8,7 @@ import { GooglePlus } from "@ionic-native/google-plus";
 
 import { AuthProvider } from "../providers/auth/auth";
 
+import firebase from "firebase";
 import { AngularFireModule } from "angularfire2"; // Firebase
 import { AngularFireDatabaseModule } from "angularfire2/database"; // Firebase database
 import { AngularFireAuthModule } from "angularfire2/auth"; // Firebase login
@@ -37,6 +38,7 @@ export const firebaseConfig = {
   storageBucket: "menu-para-hoy-1514454952723.appspot.com",
   messagingSenderId: "767495751556"
 };
+firebase.initializeApp(firebaseConfig);
 
 @NgModule({
   declarations: [MyApp, HomePage, WelcomePage, SignupPage, ModalServiciosPage],

@@ -1,13 +1,26 @@
 <ion-header>
   <ion-toolbar>
-    <ion-buttons end>
+    <ion-row>
+      <ion-col>
+        <button class="logo-timeline" (click)="miPerfil()">
+          <img class="logo-timeline" src="assets/images/icon.png">
+        </button>
+      </ion-col>
+      <ion-col text-center>
+        <ion-label stacked class="nombre-app">Menú para hoy</ion-label>
+      </ion-col>
+      <ion-col text-right>
+        <button class="logo-ubicacion" ion-button icon-only color="rojo" (click)="miUbicacion()">
+          <ion-icon name="locate"></ion-icon>
+        </button>
+      </ion-col>
+    </ion-row>
+    <!-- <ion-buttons end>
       <button ion-button icon-only color="light" (click)="cerrarSesion()">
         <ion-icon name="log-out"></ion-icon>
       </button>
-      <button ion-button icon-only color="light" (click)="miUbicacion()">
-        <ion-icon name="locate"></ion-icon>
-      </button>
-    </ion-buttons>
+
+    </ion-buttons> -->
   </ion-toolbar>
 </ion-header>
 <ion-content>

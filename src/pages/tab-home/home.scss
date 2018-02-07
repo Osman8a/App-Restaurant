@@ -6,4 +6,63 @@ page-home {
     .button-compartir{
         margin-top: -20px;
     }
+
+    .logo-timeline{
+      border-radius: 7px;
+      padding: 0%;
+      margin: 0px;
+      height: 38px;
+      width: 41px;
+    }
+
+    .nombre-app{
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+       font-size: 80px;
+       font-weight: 900;
+    }
+
+    .logo-ubicacion{
+      margin:0px;
+      padding: 0%;
+    }
+
+    // .contoles{
+
+    //     background: color($colors, four);
+    //     display: inline-block;
+    //     padding: 2px;
+    //     border-radius: 50px;
+    //     box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.38);
+    
+    //     button.button {
+    //       height: 2.4em !important;
+    //       margin: 0;
+    //       font-size: 1.5rem;
+    //       font-weight: bold;
+    
+    //     }
+    //     .perfil-button {
+    //       margin: 0;
+    //       background: #ccc;
+    //       border-radius: 50%;
+    //       overflow: hidden;
+    //       display: inline-block;
+    
+    //       &.bar-button-menutoggle-ios {
+    
+    //         width: 36px !important;
+    //         height: 36px !important;
+    //       }
+    
+    //       &.bar-button-menutoggle-md {
+    
+    //         width: 45px !important;
+    //         height: 45px !important;
+    
+    //         img {
+    //           max-width: 120% !important;
+    //         }
+    //       }
+    //     }
+    //   }
 }

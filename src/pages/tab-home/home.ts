@@ -4,6 +4,7 @@
 // se encuentra debidamente documentado cada método. De la misma manera ocurre con 
 // TabPorPrecioPage, TabPorValoracionPage y TabFavoritosPage. ¡Éxitos!
 /////////////////////////////////////////////////////////////////////////////////////////
+import { ModalController } from 'ionic-angular';
 import { Component } from "@angular/core";
 import { TimelineProvider } from "../../providers/timeline/timeline";
 import { FirebaseDbProvider } from "../../providers/firebase-db/firebase-db";
@@ -19,8 +20,14 @@ export class HomePage {
   constructor(
     public timeline: TimelineProvider,
     public dbFirebase: FirebaseDbProvider,
+    public modalCtrl: ModalController
   ) { }
 
+
+  miPerfil() {
+    let modal = this.modalCtrl.create('ModalPerfilPage');
+    modal.present();
+  }
   ////////////////////////////////////////////////////////////////////////////////////////
   ////////////////--------------   MENÚ / TIMELINE     ----------/////////////////////////
   ////////////////////////////////////////////////////////////////////////////////////////

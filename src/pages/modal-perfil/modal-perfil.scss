@@ -1,0 +1,15 @@
+page-modal-perfil {
+    .avatarPerfil{
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        border: 6px solid color($colors, four);
+        margin: 1em auto;
+    }
+
+    .nombrePerfil{
+        font-weight: 700;
+        font-size: 20pt;
+        text-align: center;
+    }
+}
