@@ -55,23 +55,13 @@ export class LoginPage {
 
 
   googleAuth() {
-    this.googlePlus.login({
-      'webClientId': "767495751556-7ll1eumre2o4robhs9rm8p2v97cq30rb.apps.googleusercontent.com",
-      'offline': true
-    })
-      .then(res => {
-        const firecreds = firebase.auth.GoogleAuthProvider.credential(res.idToken);
-        this.fireauth.signInWithCredential(firecreds)
-          .then(res => {
-            // this.navCtrl.push('MisTabsPage');
-          })
-          .catch(err => {
-            alert(`La conexión con FireBase falló${err}`); //
-          });
+    this.auth.googleLogin()
+      .then(() => {
+        this.navCtrl.push('MisTabsPage');
       })
       .catch(err => {
-        alert(`ha ocurrido y error ${err}`);
-      });
+        alert(`Hubo un error con Google ${err}`)
+      })
   }
   /**
    *
