@@ -21,28 +21,22 @@
 </ion-header>
 <ion-content>
   <ion-card>
-    <img class="avatarPerfil" src="assets/images/user.jpg">
+    <img class="avatarPerfil" [src]="userProfile.photoURL">
     <ion-grid>
       <ion-row no-padding>
         <ion-col text-center>
-          <ion-label class="nombrePerfil">{{nombre}}</ion-label>
+          <ion-label class="nombrePerfil">{{userProfile.displayName}}</ion-label>
           <ion-item>
             <ion-label color="four" floating>Correo
               <ion-icon name="mail"></ion-icon>
             </ion-label>
-            <ion-input type="email" value="{{correo}}" [readonly]="true"></ion-input>
+            <ion-input type="email" value="{{userProfile.email}}" [readonly]="true"></ion-input>
           </ion-item>
           <ion-item>
             <ion-label color="four" stacked>Telefono
               <ion-icon name="call"></ion-icon>
             </ion-label>
-            <ion-input type="tel" value="{{telefono}}" [readonly]="true"></ion-input>
-          </ion-item>
-          <ion-item>
-            <ion-label color="four" stacked>Dirección
-              <ion-icon name="home"></ion-icon>
-            </ion-label>
-            <ion-textarea type="tel" value="{{direccion}}" [readonly]="true"></ion-textarea>
+            <ion-input type="tel" value="{{userProfile.phoneNumber}}" [readonly]="true"></ion-input>
           </ion-item>
         </ion-col>
       </ion-row>

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { TimelineProvider } from "../../providers/timeline/timeline";
 import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
+import firebase from "firebase";
 
 /**
  * Generated class for the ModalPerfilPage page.
@@ -17,6 +18,7 @@ import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angul
 })
 export class ModalPerfilPage {
 
+  userProfile: any = null;
   nombre = "Osman Ochoa";
   correo = "ochoaosman@gmail.com";
   telefono = "04165842881";
@@ -27,10 +29,18 @@ export class ModalPerfilPage {
     public navParams: NavParams,
     public viewCtrl: ViewController,
     public timeline: TimelineProvider) {
+    firebase.auth().onAuthStateChanged(user => {
+      if (user) {
+        this.userProfile = user;
+      } else {
+        this.userProfile = null;
+      }
+    });
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ModalPerfilPage');
+    console.log(this.userProfile);
   }
 
   dismiss() {
