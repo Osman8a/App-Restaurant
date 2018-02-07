@@ -1,4 +1,5 @@
 import { AngularFireAuth } from "angularfire2/auth";
+import { GooglePlus } from "@ionic-native/google-plus";
 import { Injectable } from "@angular/core";
 import * as firebase from "firebase";
 
@@ -13,8 +14,28 @@ import * as firebase from "firebase";
 
 @Injectable()
 export class AuthProvider {
-  constructor(private afAuth: AngularFireAuth) {
+  fireauth = firebase.auth();
+  constructor(private afAuth: AngularFireAuth, public googlePlus: GooglePlus) {
     console.log("Hello AuthProvider Provider");
+  }
+
+  googleLogin() {
+    return this.googlePlus.login({
+      'webClientId': "767495751556-7ll1eumre2o4robhs9rm8p2v97cq30rb.apps.googleusercontent.com"
+    })
+      .then(res => {
+        const firecreds = firebase.auth.GoogleAuthProvider.credential(res.idToken);
+        this.afAuth.auth.signInWithCredential(firecreds)
+          .then(res => {
+            // this.navCtrl.push('MisTabsPage');
+            Promise.resolve(res);
+            console.log(`Login Satisfactorio`);
+          })
+          .catch(err => {
+            alert(`La conexión con FireBase falló${err}`); //
+          });
+      })
+      .catch(err => Promise.reject(err));
   }
 
   // facebookLogin() {

@@ -125,36 +125,5 @@ export class SignupPage {
       );
     }
   }
-  /**
-   *
-   * @function googleAuth Login mediante Google
-   * @memberof SignupPage
-   */
-  googleAuth() {
-    this.googlePlus
-      .login({
-        //nuevo
-        webClientId:
-          "767495751556-7ll1eumre2o4robhs9rm8p2v97cq30rb.apps.googleusercontent.com" //
-      })
-      .then(res => {
-        //
-        const firecreds = firebase.auth.GoogleAuthProvider.credential(
-          res.idToken
-        ); //
-        this.fireauth
-          .signInWithCredential(firecreds) //
-          .then(res => {
-            //
-            alert("Login Saatisfactorio"); //
-          }) //
-          .catch(err => {
-            //
-            alert(`La conexión con FireBase falló${err}`); //
-          }); //
-      })
-      .catch(err => {
-        alert(`cambio 1 ${err}`);
-      });
-  }
+
 }
