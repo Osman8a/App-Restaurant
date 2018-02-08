@@ -4,6 +4,7 @@ import { IonicApp, IonicErrorHandler, IonicModule } from "ionic-angular";
 import { SplashScreen } from "@ionic-native/splash-screen";
 import { StatusBar } from "@ionic-native/status-bar";
 import { GooglePlus } from "@ionic-native/google-plus";
+import { Facebook } from '@ionic-native/facebook';
 
 
 import { AuthProvider } from "../providers/auth/auth";
@@ -62,7 +63,8 @@ firebase.initializeApp(firebaseConfig);
     Geolocation,
     LaunchNavigator,
     SocialSharing,
-    TimelineProvider
+    TimelineProvider,
+    Facebook
   ]
 })
 export class AppModule { }
