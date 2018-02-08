@@ -1,5 +1,6 @@
 import { AngularFireAuth } from "angularfire2/auth";
 import { GooglePlus } from "@ionic-native/google-plus";
+import { Facebook } from '@ionic-native/facebook';
 import { Injectable } from "@angular/core";
 import * as firebase from "firebase";
 
@@ -15,7 +16,11 @@ import * as firebase from "firebase";
 @Injectable()
 export class AuthProvider {
   fireauth = firebase.auth();
-  constructor(private afAuth: AngularFireAuth, public googlePlus: GooglePlus) {
+  constructor(
+    private afAuth: AngularFireAuth,
+    public googlePlus: GooglePlus,
+    public facebook: Facebook
+  ) {
     console.log("Hello AuthProvider Provider");
   }
 
@@ -38,26 +43,21 @@ export class AuthProvider {
       .catch(err => Promise.reject(err));
   }
 
-  // facebookLogin() {
-  //   this.facebook
-  //     .login(["email"])
-  //     .then(res => {
-  //       const facebookCredential = firebase.auth.FacebookAuthProvider.credential(
-  //         res.authResponse.accessToken
-  //       );
-  //       this.afAuth.auth
-  //         .signInWithCredential(facebookCredential)
-  //         .then(res => {
-  //           alert(`Login Saatisfactorio ${res}`); //
-  //         })
-  //         .catch(err => {
-  //           alert(`error durante la authenticacion ${err}`);
-  //         });
-  //     })
-  //     .catch(err => {
-  //       alert(`error inespeerado ${err}`);
-  //     });
-  // }
+  facebookLogin() {
+    return this.facebook.login(['email', 'public_profile'])
+      .then(res => {
+        const fc = firebase.auth.FacebookAuthProvider.credential(res.authResponse.accessToken)
+        firebase.auth().signInWithCredential(fc)
+          .then(fs => {
+            Promise.resolve(res);
+            console.log(`Login Satisfactorio con Facebook`);
+          })
+          .catch(err => {
+            alert(`falló facebook ${err}`); //
+          })
+      })
+      .catch(err => Promise.reject(err));
+  }
 
   /**
    *

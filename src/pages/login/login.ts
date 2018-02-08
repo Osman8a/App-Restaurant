@@ -7,7 +7,6 @@ import {
   Platform
 } from "ionic-angular"; //AlertController para mostrar los mensajes de error
 import { AuthProvider } from "../../providers/auth/auth"; // nustro proveedor
-import { Facebook } from '@ionic-native/facebook';
 import swal from "sweetalert2"; // alertas
 import { AngularFireAuth } from "angularfire2/auth";
 import firebase from "firebase";
@@ -34,26 +33,18 @@ export class LoginPage {
     public navCtrl: NavController,
     public navParams: NavParams,
     public auth: AuthProvider,
-    public facebook: Facebook,
     public alertCtrl: AlertController,
     private af: AngularFireAuth,
     private platform: Platform
   ) { }
 
   facebookAuth() {
-    this.facebook.login(['email'])
-      .then(res => {
-        const fc = firebase.auth.FacebookAuthProvider.credential(res.authResponse.accessToken)
-        firebase.auth().signInWithCredential(fc)
-          .then(fs => {
-            alert("Facebook satisfactorio")
-          })
-          .catch(err => {
-            alert(`Falló facebook auth ${err}`)
-          })
+    this.auth.facebookLogin()
+      .then(() => {
+        this.navCtrl.push('MisTabsPage');
       })
       .catch(err => {
-        alert(JSON.stringify(err))
+        alert(`Hubo un error con Google ${err}`)
       })
   }
 
