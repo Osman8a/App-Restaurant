@@ -2,16 +2,10 @@ import { AngularFireAuth } from "angularfire2/auth";
 import { GooglePlus } from "@ionic-native/google-plus";
 import { Facebook } from '@ionic-native/facebook';
 import { Injectable } from "@angular/core";
+
 import * as firebase from "firebase";
 
-/*
-  Generated class for the AuthProvider provider.
 
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
-
-//Registro dde usuario
 
 @Injectable()
 export class AuthProvider {
@@ -47,13 +41,17 @@ export class AuthProvider {
     return this.facebook.login(['email', 'public_profile'])
       .then(res => {
         const fc = firebase.auth.FacebookAuthProvider.credential(res.authResponse.accessToken)
-        firebase.auth().signInWithCredential(fc)
+        this.afAuth.auth.signInWithCredential(fc)
           .then(fs => {
             Promise.resolve(res);
             console.log(`Login Satisfactorio con Facebook`);
           })
           .catch(err => {
             alert(`falló facebook ${err}`); //
+
+            if (err == 'An account already exists with the same email address but different sign-in credentials. Sign in using a provider associated with this email address') {
+              console.log(`entró`);
+            }
           })
       })
       .catch(err => Promise.reject(err));
@@ -75,7 +73,7 @@ export class AuthProvider {
       .createUserWithEmailAndPassword(email, password)
       .then(res => {
         let user: any = this.afAuth.auth.currentUser;
-        console.log(user);
+        //console.log(user);
         user
           .sendEmailVerification()
           .then(res => {
@@ -123,13 +121,17 @@ export class AuthProvider {
     return this.afAuth.auth.currentUser.uid;
   }
 
+  usuarioActual() {
+    return this.afAuth.auth.currentUser
+  }
+
   /**
    * @function logout permite cerrar session
    * @memberof AuthProvider
    */
   logout() {
     this.afAuth.auth.signOut().then(estado => {
-      //usurio deslogeado
+      console.log("cerró");
     });
   }
 }

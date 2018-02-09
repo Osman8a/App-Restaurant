@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { AngularFireDatabase, AngularFireList } from "angularfire2/database";
+import { AngularFireDatabase, AngularFireList, snapshotChanges } from "angularfire2/database";
 import { AuthProvider } from "../auth/auth";
 
 /*
@@ -115,4 +115,15 @@ export class FirebaseDbProvider {
   getComentarios(restaurant) {
     return this.afDB.list("comentarios/" + restaurant.id).valueChanges();
   }
+
+  nuevosDatos(datos) {
+    return this.afDB.database.ref('usuarios/' + this.auth.getUser()).set(datos)
+      .then(() => console.log(`se guardó`))
+      .catch(() => console.log(`no se guardó`))
+  }
+
+  getUsuario() {
+    return this.afDB.database.ref().child('usuarios').child(this.auth.getUser()).once('value')
+  }
+
 }

@@ -7,6 +7,7 @@
 import { ModalController } from 'ionic-angular';
 import { Component } from "@angular/core";
 import { TimelineProvider } from "../../providers/timeline/timeline";
+import { AuthProvider } from "../../providers/auth/auth";
 import { FirebaseDbProvider } from "../../providers/firebase-db/firebase-db";
 
 @Component({
@@ -20,6 +21,7 @@ export class HomePage {
   constructor(
     public timeline: TimelineProvider,
     public dbFirebase: FirebaseDbProvider,
+    public auth: AuthProvider,
     public modalCtrl: ModalController
   ) { }
 

@@ -53,6 +53,7 @@
     "cordova-universal-links-plugin": "^1.2.1",
     "es6-promise-plugin": "^4.2.2",
     "firebase": "^4.9.1",
+    "gravatar": "^1.6.0",
     "ionic-angular": "3.9.2",
     "ionic-img-viewer": "^2.9.0",
     "ionic-plugin-keyboard": "^2.2.1",

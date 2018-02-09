@@ -54,7 +54,7 @@ export class TimelineProvider {
    * @memberof HomePage
    */
   cerrarSesion() {
-    this.auth.logout();
+    this.auth.logout()
   }
   /**
    * 

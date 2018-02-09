@@ -21,22 +21,22 @@
 </ion-header>
 <ion-content>
   <ion-card>
-    <img class="avatarPerfil" [src]="userProfile.photoURL">
+    <img class="avatarPerfil" [src]="foto">
     <ion-grid>
       <ion-row no-padding>
         <ion-col text-center>
-          <ion-label class="nombrePerfil">{{userProfile.displayName}}</ion-label>
+          <ion-label class="nombrePerfil">{{nombre}}</ion-label>
           <ion-item>
             <ion-label color="four" floating>Correo
               <ion-icon name="mail"></ion-icon>
             </ion-label>
-            <ion-input type="email" value="{{userProfile.email}}" [readonly]="true"></ion-input>
+            <ion-input type="email" value="{{correo}}" [readonly]="true"></ion-input>
           </ion-item>
           <ion-item>
             <ion-label color="four" stacked>Telefono
               <ion-icon name="call"></ion-icon>
             </ion-label>
-            <ion-input type="tel" value="{{userProfile.phoneNumber}}" [readonly]="true"></ion-input>
+            <ion-input type="tel" [(ngModel)]="telefono" value="{{telefono}}" readonly="{{esLectura}}"></ion-input>
           </ion-item>
         </ion-col>
       </ion-row>
@@ -45,12 +45,12 @@
     <ion-grid>
       <ion-row>
         <ion-col text-center>
-          <button ion-button color="four" full small>
+          <button ion-button color="{{colorButton}}" full small (click)="realiazarFuncion()">
             <ion-col>
               <ion-icon name="walk" color="dark"></ion-icon>
             </ion-col>
             <ion-col>
-              Editar Perfil
+              {{textoButton}}
             </ion-col>
             <ion-col>
               <ion-icon name="restaurant" color="dark"></ion-icon>
