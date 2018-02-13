@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { FirebaseDbProvider } from "../../providers/firebase-db/firebase-db"
+import { FirebaseDbProvider } from "../../providers/firebase-db/firebase-db";
+import { ModalController } from 'ionic-angular';
 /**
  * Generated class for the TabFavoritosPage page.
  *
@@ -20,9 +21,22 @@ export class TabFavoritosPage {
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    public dbFirebase: FirebaseDbProvider
+    public dbFirebase: FirebaseDbProvider,
+    public modalCtrl: ModalController
   ) {
   }
+
+  mostrarRestaurantFav(favorito) {
+    console.log(favorito.id);
+    let restauratFavorito = {
+      id: favorito.id
+    }
+    console.log("EN MOSTRAR ESTÁ" + restauratFavorito.id);
+    let modal = this.modalCtrl.create('ModalRestaurantFavPage', restauratFavorito);
+    modal.present();
+  }
+
+
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad TabFavoritosPage');
@@ -31,6 +45,7 @@ export class TabFavoritosPage {
   ionViewDidEnter() {
     this.dbFirebase.getRestaurantFavoritos().subscribe(favoritos => {
       this.favoritos = favoritos;
+      console.log(this.favoritos);
     })
   }
 

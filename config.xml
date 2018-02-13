@@ -95,9 +95,9 @@
     <plugin name="cordova-plugin-googleplus" spec="^5.2.1">
         <variable name="REVERSED_CLIENT_ID" value="com.googleusercontent.apps.767495751556-7ll1eumre2o4robhs9rm8p2v97cq30rb" />
     </plugin>
-    <engine name="android" spec="~7.0.0" />
     <plugin name="cordova-plugin-facebook4" spec="^1.9.1">
         <variable name="APP_ID" value="1267633870005542" />
         <variable name="APP_NAME" value="MenuParaHoy" />
     </plugin>
+    <engine name="android" spec="7.0.0" />
 </widget>

@@ -92,6 +92,18 @@ export class HomePage {
 
   ionViewDidLoad() {
     this.timeline.obtenerPosicion();
+
+    //Creo el usuario sino existe en FireBase
+    this.dbFirebase.getUsuario().then((res) => {
+      let respuesta = res.val()
+
+      if (respuesta === null) {
+        let datos = {
+          telefono: "no posee"
+        }
+        this.dbFirebase.nuevosDatos(datos)
+      }
+    })
   }
 
 }

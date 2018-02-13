@@ -9,6 +9,7 @@ import {
 import { AuthProvider } from "../../providers/auth/auth"; // nustro proveedor
 import swal from "sweetalert2"; // alertas
 import { AngularFireAuth } from "angularfire2/auth";
+import { FirebaseDbProvider } from "../../providers/firebase-db/firebase-db";
 import firebase from "firebase";
 
 
@@ -35,7 +36,8 @@ export class LoginPage {
     public auth: AuthProvider,
     public alertCtrl: AlertController,
     private af: AngularFireAuth,
-    private platform: Platform
+    private platform: Platform,
+    public dbFirebase: FirebaseDbProvider,
   ) { }
 
   facebookAuth() {

@@ -1,0 +1,119 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Mis Restaurantes Favoritos</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only color="light" (click)="cerrarSesion()">
+        <ion-icon name="log-out"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-list>
+
+    <!-- FIN Rango de la valoración -->
+    <!-- Acá empieza el timeline (Menús) -->
+    <ion-item>
+      <ion-card>
+        <ion-item>
+          <!-- Logo del restaurante -->
+          <ion-avatar item-start>
+            <img [src]="image">
+          </ion-avatar>
+          <!-- Nombre del restaurante -->
+          <h2>{{nombre}}</h2>
+          <p></p>
+          <!-- Menú del restaurante -->
+        </ion-item>
+        <img [src]="fotoPizarra" #myImage (click)="presentImage(myImage)" />
+        <ion-card-content>
+          <!-- Aquí iría la descripción -->
+        </ion-card-content>
+
+        <!-- donde se encuentra favorito, distancia y compartir-->
+        <ion-grid>
+          <ion-row no-padding>
+            <ion-col text-center>
+              <!-- <button ion-button clear small color="energy" icon-start class="estrella"> -->
+              <ion-icon color="energy" name='star'>{{valoracionmenuPizarra}}</ion-icon>
+              <!-- </button> -->
+            </ion-col>
+            <!-- Navegación -->
+            <ion-col text-center>
+              <ion-icon name="navigate" color="primary"> 4.675</ion-icon>
+            </ion-col>
+            <!-- Compartir -->
+            <ion-col text-center>
+              <ion-fab class="button-compartir" center button>
+                <button ion-fab mini color="primary">
+                  <ion-icon name="share"></ion-icon>
+                </button>
+                <ion-fab-list side="top">
+                  <button (click)="facebookShare(nombre,fotoPizarra)" color="facebook" ion-fab>
+                    <ion-icon name="logo-facebook"></ion-icon>
+                  </button>
+                  <button (click)="twitterShare(nombre,fotoPizarra)" ion-fab>
+                    <ion-icon color="twitter" name="logo-twitter"></ion-icon>
+                  </button>
+                  <button (click)="emailShare(nombre,fotoPizarra)" ion-fab color="danger">
+                    <ion-icon name="mail"></ion-icon>
+                  </button>
+                  <button (click)="instagramShare(nombre,fotoPizarra)" ion-fab color="instagram">
+                    <ion-icon name="logo-instagram"></ion-icon>
+                  </button>
+                  <button (click)="whatsapShare(nombre,fotoPizarra)" color="whatsapp" ion-fab>
+                    <ion-icon name="logo-whatsapp"></ion-icon>
+                  </button>
+                </ion-fab-list>
+              </ion-fab>
+            </ion-col>
+            <!-- Fin compartir -->
+          </ion-row>
+        </ion-grid>
+        <!-- donde se encuentra el horario desde y haste -->
+        <ion-grid>
+          <ion-row>
+            <ion-col text-center>
+              <ion-icon name="clock" color="four"></ion-icon>Desde: {{desdePizarra}}
+            </ion-col>
+            <ion-col text-center>
+              <ion-icon name="clock" color="danger"></ion-icon>Hasta: {{hastaPizarra}}
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+
+        <!-- donde se encuentra el precio minimo y maximo -->
+        <ion-grid>
+          <ion-row>
+            <ion-col text-center>
+              <ion-icon name="book" color="four"></ion-icon>Max: {{maxPizarra}} $
+            </ion-col>
+            <ion-col text-center>
+              <ion-icon name="book" color="danger"></ion-icon>Min: {{minPizarra}} $
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+        <!-- boton ¿Estas Aqui? -->
+        <ion-grid>
+          <ion-row>
+            <!-- <ion-col text-center>
+              <button ion-button color="whatsapp" (click)="valorarMenu(sitios)" full small>
+                <ion-col>
+                  <ion-icon name="walk" color="dark"></ion-icon>
+                </ion-col>
+                <ion-col>
+                  ¿Estas Aqui?
+                </ion-col>
+                <ion-col>
+                  <ion-icon name="restaurant" color="dark"></ion-icon>
+                </ion-col>
+              </button>
+            </ion-col> -->
+          </ion-row>
+        </ion-grid>
+      </ion-card>
+    </ion-item>
+
+  </ion-list>
+  <!-- FIN Menús -->
+</ion-content>

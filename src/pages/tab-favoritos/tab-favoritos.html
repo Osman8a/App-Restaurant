@@ -21,7 +21,7 @@
       </ion-thumbnail>
       <h2>{{favoritos.nombre}}</h2>
       <p>{{favoritos.lema}}</p>
-      <button ion-button clear item-end>Ver</button>
+      <button ion-button clear item-end (click)="mostrarRestaurantFav(favoritos)">Ver</button>
     </ion-item>
   </ion-list>
 </ion-content>

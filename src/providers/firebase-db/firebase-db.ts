@@ -35,7 +35,16 @@ export class FirebaseDbProvider {
       // return this.afDB.list("sitios/", ref => ref.orderByChild('valoracion').equalTo(filtro)).valueChanges(); //por precio del menú del restaurante
       return this.afDB.list("sitios/", ref => ref.orderByChild('pizarras' + '/max').endAt(filtro)).valueChanges();  //orderByChild('pizarras' + '/max').endAt(filtro)).valueChanges(); //por valoración de menús de restaurates
     }
+    if (opcion === 'favorito') {
+      return this.afDB.list("sitios/" + filtro).valueChanges();
+    }
   }
+
+  getSitio(filtro) {
+    return this.afDB.database.ref().child('sitios').child(filtro).once('value')
+    //return this.afDB.database.ref('favoritos/' + filtro).once('value')
+  }
+
   /**
    * @function getRestaurantFavoritos obtine el 
    * listado de restaaurantes favoritos

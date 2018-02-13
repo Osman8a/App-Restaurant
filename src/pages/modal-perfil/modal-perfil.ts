@@ -20,7 +20,7 @@ export class ModalPerfilPage {
 
   nombre: any;
   correo: any;
-  telefono: any;
+  telefono: any = "no posee";
   foto: any;
   esLectura: any;  // Propiedad que permite modificar o no el contenido de el input
   colorButton: any; // color del boton
@@ -90,7 +90,7 @@ export class ModalPerfilPage {
       this.esLectura = false; // hacemos que el input telefono se pueda cambiar
       this.colorButton = 'primary' // modificamos el color del boton
       this.textoButton = 'Guardar Cambios' // modificamos el texto del boton
-      console.log(this.telefono);
+      console.log("entró aqui " + this.telefono);
     } else {
       // NO podemos editar
       this.esLectura = true; // hacemos que el input telefono se pueda cambiar
@@ -103,15 +103,12 @@ export class ModalPerfilPage {
     }
   }
 
-
   ionViewWillEnter() {
     this.dbFirebase.getUsuario().then((res) => {
       let datos = res.val().telefono;
       this.cargarDatosPersonales(datos);
       console.log("aqui está" + this.usuarioActual);
     })
-
-
   }
 
 }
