@@ -101,6 +101,9 @@ Como primer paso debe clonar este repositorio via **https**
 
 ```
 $git clone https://Osman8a2@bitbucket.org/menuparahoy_cl/comensal2.0.git
+o con la cuenta de menu para hoy
+git clone https://menuparahoycl@bitbucket.org/menuparahoy_cl/comensal2.0.git
+(la autenticación se hace con la clave que tenga en gmail)
 ```
 
 o tambien puede clonarlo via **ssh**
@@ -121,6 +124,11 @@ $cd Comensal2.0 && npm install
 ```
 
 Subsiguintemente 
+
+para correr la app 
+```
+$ionic serve-l [o con: yarn run android]
+```
 
 ## Desarrollado con 
 
